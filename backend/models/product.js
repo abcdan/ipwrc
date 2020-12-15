@@ -1,30 +1,31 @@
 module.export = class Product {
   constructor (name, price, image) {
-    this._image = image;
-    this._name = name;
-    this._price = price;
+    this._image = image
+    this._name = name
+    this._price = price
   }
 
-  get name() {
-    return this._name;
+  get name () {
+    return this._name
   }
 
-  set name(value) {
-    this._name = value;
+  set name (value) {
+    this._name = value
   }
 
-  get price() {
-    return this._price;
+  get price () {
+    return this._price
   }
 
-  set price(value) {
-    this._price = value;
-  }
-  get image() {
-    return this._image;
+  set price (value) {
+    this._price = value
   }
 
-  set image(value) {
-    this._image = value;
+  get image () {
+    return this._image
+  }
+
+  set image (value) {
+    this._image = value
   }
 }

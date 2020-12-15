@@ -1,0 +1,17 @@
+.product-image {
+    width: 100%;
+    border-radius: 16px;
+    margin: 10px;
+}
+
+.details {
+    padding: 20px;
+}
+
+.pricing {
+    font-size: 2em;
+    background-color: green;
+    border-radius: 16px;
+    padding: 0.2vh 1vw;
+    color: white;
+}
