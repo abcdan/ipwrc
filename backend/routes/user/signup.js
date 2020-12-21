@@ -1,9 +1,9 @@
-const User = require('../database/models/User')
+const User = require('../../database/models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-module.exports = (app) => {
-  app.post('/signup', async (req, res) => {
+module.exports = (app, endpoint) => {
+  app.post(endpoint, async (req, res) => {
     const { username, email, password } = req.body
     try {
       let user = await User.findOne({
