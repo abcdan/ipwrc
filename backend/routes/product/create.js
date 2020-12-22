@@ -18,7 +18,7 @@ module.exports = (app, endpoint) => {
         image
       })
 
-      await product.save
+      await product.save()
 
       res.json(product)
     } catch (e) {
