@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 module.exports = (app, endpoint) => {
   app.post(endpoint, async (req, res) => {
     const { email, password } = req.body
+    if (!email || !email) { return res.status(400).json({ success: false, message: 'you forgot `email` or `password' }) }
     try {
       const user = await User.findOne({
         email

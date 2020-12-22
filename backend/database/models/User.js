@@ -5,6 +5,30 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  firstName: {
+    type: String,
+    required: false
+  },
+  lastName: {
+    type: String,
+    required: false
+  },
+  street: {
+    type: String,
+    required: false
+  },
+  streetNumber: {
+    type: String,
+    required: false
+  },
+  postalCode: {
+    type: String,
+    required: false
+  },
+  country: {
+    type: String,
+    required: false
+  },
   email: {
     type: String,
     required: true
@@ -12,6 +36,11 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  admin: {
+    type: Boolean,
+    required: true,
+    default: false
   },
   createdAt: {
     type: Date,

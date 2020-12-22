@@ -9,14 +9,10 @@ const path = require('path')
 app.use(bodyParser.json())
 require('./database/init')()
 
-fs.readdirSync('./routes/').forEach((file) => {
-  const route = './routes/' + file
-  require(route)(app)
-})
 /**
 * Assign the right routes to endpoints using the way they are named and located
 * in the routes folder
-* Credits: https://github.com/abcdan/pify/ (my own project ool)
+* Credits: https://github.com/abcdan/pify/ (my own project lol)
 * @param routePath The folder we have to walk through
 * @param prefix The prefix
 */
