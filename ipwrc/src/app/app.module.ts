@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
+import { ItemComponent } from './cart/item/item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AccountComponent } from './account/account.component';
     ProductsComponent,
     NavigationComponent,
     HomeComponent,
-    AccountComponent
+    AccountComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
