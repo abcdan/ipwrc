@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ItemComponent } from './item/item.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class CartService {
 
   constructor() { }
   
-  setCartItems(items: OrderItem[]) {
+  setCart(items: ItemComponent[]) {
     localStorage.setItem('cart', JSON.stringify(items));
   }
   clearCart() {
