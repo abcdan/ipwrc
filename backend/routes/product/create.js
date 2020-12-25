@@ -6,13 +6,15 @@ module.exports = (app, endpoint) => {
   * Create a new product
   */
   app.post(endpoint, authentication, async (req, res) => {
+    console.log(req.user.admin)
+    console.log(req.user)
     if (!req.user.admin) { return res.status(401).json({ success: false, message: 'you\'re not an admin' }) }
-    const { slug, title, description, price, image } = req.body
-    if (!slug || !title || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, title, description, price, image' }) }
+    const { slug, name, description, price, image } = req.body
+    if (!slug || !name || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, name, description, price, image' }) }
     try {
       const product = new Product({
         slug,
-        title,
+        name,
         description,
         price,
         image
