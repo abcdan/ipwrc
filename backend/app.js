@@ -9,6 +9,8 @@ const path = require('path')
 app.use(bodyParser.json())
 require('./database/init')()
 
+global.models = require('./database/models')
+
 /**
 * Assign the right routes to endpoints using the way they are named and located
 * in the routes folder

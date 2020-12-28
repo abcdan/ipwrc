@@ -2,10 +2,18 @@ const User = require('../../database/models/User')
 const authentication = require('../../middleware/authentication')
 
 module.exports = (app, endpoint) => {
-  app.post(endpoint, authentication, async (req, res) => {
+  app.get(endpoint, authentication, async (req, res) => {
     try {
+      const orders = await global.models('order').find({
+        userId: req.user.id
+      })
       const user = await User.findById(req.user.id)
-      res.json(user)
+      res.json({
+        success: true,
+        message: 'fetched user data',
+        user,
+        orders
+      })
     } catch (e) {
       res.send({ success: false, message: 'couldnt fetch user' })
     }
