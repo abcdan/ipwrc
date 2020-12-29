@@ -6,7 +6,7 @@ module.exports = (app, endpoint) => {
   */
   app.get(endpoint + '/:orderId', async (req, res) => {
     try {
-      const product = await Product.findById(req.params.orderId)
+      const product = await Order.findById(req.params.orderId)
       console.log(product)
       res.json(await product)
     } catch (e) {

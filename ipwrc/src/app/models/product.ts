@@ -4,13 +4,15 @@ class Product {
     private _price: number
     private _image: string
     private _slug: string
+    private _id: string
 
-    constructor(name: string, description: string, image: string, price: number, slug: string) {
+    constructor(name: string, description: string, image: string, price: number, slug: string, id: string) {
         this._name = name
         this._description = description
         this._image = image
         this._price = price
         this._slug = slug
+        this._id = id
     }
 
   get name(): string {
@@ -51,6 +53,14 @@ class Product {
 
   set slug(value: string) {
     this._slug = value;
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  set id(value: string) {
+    this._id = value;
   }
 }
 

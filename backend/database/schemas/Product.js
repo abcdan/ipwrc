@@ -25,6 +25,14 @@ const ProductSchema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now()
+  },
+  paid: {
+    type: Boolean,
+    default: false
+  },
+  delivered: {
+    type: Boolean,
+    default: false
   }
 })
 

@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="285d52ca-2a78-4ac5-b1af-9d5a95eb9ab6" name="Default Changelist" comment="">
+    <list default="true" id="285d52ca-2a78-4ac5-b1af-9d5a95eb9ab6" name="Default Changelist" comment=":sparkles: secure ssl ofc">
+      <change afterPath="$PROJECT_DIR$/backend/routes/order/toggle-paid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/order/toggle-shipped.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ipwrc/src/app/models/cartItem.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/schemas/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/schemas/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/cart/cart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/cart/cart.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ipwrc/src/app/models/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/models/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwrc/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/product/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/models/productModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/shared/models/cart-item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/shared/models/cart-item.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +33,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ipwrc/src/app/models" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\Daniel\Documents\ipwrc\ipwrc\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Documents\ipwrc\ipwrc\src\app\models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Documents\ipwrc\backend\routes\order" />
+      <recent name="C:\Users\Daniel\Documents\ipwrc\backend\routes\\" />
+      <recent name="C:\Users\Daniel\Documents\ipwrc\backend\routes" />
+      <recent name="C:\Users\Daniel\Documents\ipwrc\database" />
+      <recent name="C:\Users\Daniel\Documents\ipwrc\ipwrc\src\app\models" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,7 +60,16 @@
       <updated>1607347512174</updated>
       <workItem from="1607347513600" duration="322000" />
       <workItem from="1609254339401" duration="96000" />
+      <workItem from="1609260098031" duration="1347000" />
     </task>
+    <task id="LOCAL-00001" summary=":sparkles: secure ssl ofc">
+      <created>1609260132922</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609260132922</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,5 +89,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value=":sparkles: secure ssl ofc" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: secure ssl ofc" />
   </component>
 </project>
