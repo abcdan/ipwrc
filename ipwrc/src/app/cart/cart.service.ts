@@ -23,12 +23,14 @@ export class CartService {
     }
   }
 
-  addProductToShoppingCart(item: cartItem): boolean {
+  addProductToShoppingCart(item: any): boolean {
     try {
       let currentShoppingItems = this.getCartItems();
 
+      console.log(currentShoppingItems)
       const existingProductIndex = currentShoppingItems.findIndex(
-        (cartItem) => cartItem.product.id == item.product.id)
+        (cartItem: any) => cartItem.product[0].slug === item.product[0].slug)
+        console.log(existingProductIndex)
 
       if (existingProductIndex !== -1) {
         currentShoppingItems[existingProductIndex].amount += item.amount
@@ -39,6 +41,7 @@ export class CartService {
       this.cartSubject.next(currentShoppingItems)
       return true
     } catch (e) {
+      console.log(e)
       return false
     }
   }
@@ -46,6 +49,7 @@ export class CartService {
   setCart(items: ItemComponent[]) {
     localStorage.setItem('cart', JSON.stringify(items));
   }
+
   clearCart() {
     localStorage.removeItem('cart')
   }

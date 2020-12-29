@@ -9,9 +9,12 @@ import { CartService } from './cart.service';
 export class CartComponent implements OnInit {
 
   constructor(private cart: CartService) { }
+  // TOOD: rename lol, or not. it's funny cause Playboi Carti is an artist
+  playboiCarti: any[] | undefined
 
   ngOnInit(): void {
-    console.log(this.cart.getCartItems())
+    this.playboiCarti = this.cart.getCartItems()
+    console.log(this.playboiCarti)
   }
 
 

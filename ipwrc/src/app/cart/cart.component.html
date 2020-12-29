@@ -1,1 +1,10 @@
 <p>cart works!</p>
+
+<div *ngIf="playboiCarti">
+    <ul>
+        <li *ngFor='let item of playboiCarti; index as i;'>
+            {{item.product[0].name}} {{item.amount}} &euro; {{item.product[0].price }}
+        </li>
+    </ul>
+    Slatt, the cart exists
+</div>
