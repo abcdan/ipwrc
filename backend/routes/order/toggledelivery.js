@@ -2,7 +2,7 @@ const authentication = require('../../middleware/authentication')
 
 module.exports = (app, endpoint) => {
     /**
-     * Toggle if paid
+     * Toggle if delivered
      */
     app.patch(endpoint + '/:orderId', authentication, async (req, res) => {
         const orderId = req.params.orderId
@@ -12,7 +12,7 @@ module.exports = (app, endpoint) => {
             const order = await global.models('order').findById(orderId)
             // if(await order.userId !== req.user.id) { return res.json(401).json({ success: false, message: 'thats not your order man'})}
             await order.updateOne({
-                    paid: !order.paid
+                delivered: !order.delivered
             })
 
             await order.save()

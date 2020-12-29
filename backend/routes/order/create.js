@@ -9,7 +9,7 @@ module.exports = (app, endpoint) => {
   */
   app.post(endpoint, authentication, async (req, res) => {
     const { products } = req.body
-    if (!products) { return res.status(400).json({ success: false, message: 'your forgot to give an array of products' }) }
+    if (!products) { return res.status(400).json({ success: false, message: 'your forgot to give an array of products with id/amount' }) }
     try {
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
