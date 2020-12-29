@@ -1,10 +1,27 @@
-<p>cart works!</p>
-
-<div *ngIf="playboiCarti">
-    <ul>
-        <li *ngFor='let item of playboiCarti; index as i;'>
-            {{item.product[0].name}} {{item.amount}} &euro; {{item.product[0].price }}
-        </li>
-    </ul>
-    Slatt, the cart exists
+<br>
+<h2>Cart</h2>
+<p>Check out the amazing list of product you've added to your cart!</p>
+<div *ngIf="playboiCarti" class="row">
+    <div class="col-3">
+        <h3>Summary</h3>
+        You've added a total of {{countProducts()}} products to your cart. This will cost you &euro; {{ getTotalPrice() }}
+    </div>
+    <div class="col-9">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let item of playboiCarti; index as i;'>
+            <th scope="row" >{{item.amount}}</th>
+            <td><a href="/product/{{item.product[0].slug}}">{{item.product[0].name}}</a></td>
+            <td>&euro; {{item.product[0].price}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>
