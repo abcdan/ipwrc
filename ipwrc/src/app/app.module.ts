@@ -11,7 +11,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { ItemComponent } from './cart/item/item.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { HttpClientInterceptor } from './api/http-client.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,14 @@ import { HttpClient } from '@angular/common/http';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,
+    HttpClient,
+    {provide: 'URL_API_BASE', useValue: environment.baseURL},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpClientInterceptor,
+      multi: true,
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

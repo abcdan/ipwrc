@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -12,19 +12,14 @@ import { AuthserviceService } from '../authentication/authservice.service';
 export class HttpClientInterceptor implements HttpInterceptor {
   constructor(
     private authService:AuthserviceService,
-    @Inject('BASE_API_URL') private baseUrl: string) {
+    @Inject('URL_API_BASE') private baseUrl: string) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const apiReq = request.clone({
       url: `${this.baseUrl}/${request.url}`,
-      headers: request.headers.set('token', this.authService.getJWTToken())
+      headers: request.headers.set('token', this.authService.getToken())
     });
     return next.handle(apiReq);
   }
-
-  
-  // intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-  //   return next.handle(request);
-  // }
 }
