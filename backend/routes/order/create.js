@@ -1,6 +1,7 @@
 const Product = require('../../database/models/Product')
 const Order = require('../../database/models/order')
 const authentication = require('../../middleware/authentication')
+const OrderProduct = require('../../database/models/OrderProduct')
 
 module.exports = (app, endpoint) => {
   /**
@@ -12,20 +13,27 @@ module.exports = (app, endpoint) => {
     try {
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
-        const product = await Product.findById(products[i])
-        productDocuments.push(await product)
+        const product = await Product.findById(products[i].id)
+        const orderProduct = new OrderProduct({
+          slug: product.slug,
+          name: product.name,
+          price: product.price,
+          description: product.description,
+          image: product.image,
+          amount: products[i].amount
+        })
+        productDocuments.push(await orderProduct)
       }
       const order = new Order({
         products: productDocuments,
         userId: req.user.id
       })
 
-      order.save().catch(e =>{
+      await order.save().catch(e =>{
         console.log(e)
         return res.send({ success: false, message: 'couldnt create order' })
-
       })
-      res.json(order)
+      res.json(await order)
     } catch (e) {
       console.log(e)
       return res.send({ success: false, message: 'couldnt create order' })

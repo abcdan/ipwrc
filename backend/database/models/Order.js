@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
-const Product = require('../schemas/Product')
+const OrderProductSchema = require('../schemas/OrderProduct')
 
 const OrderSchema = mongoose.Schema({
   products: {
-    type: [Product],
+    type: [OrderProductSchema],
     required: true,
-    ref: 'product'
+    ref: 'product',
+    unique: false
   },
   userId: {
     type: String,
@@ -14,6 +15,14 @@ const OrderSchema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now()
+  },
+  paid: {
+    type: Boolean,
+    default: false
+  },
+  delivered: {
+    type: Boolean,
+    default: false
   }
 })
 

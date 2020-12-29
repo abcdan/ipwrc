@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const ProductSchema = mongoose.Schema({
+const OrderProductSchema = mongoose.Schema({
   slug: {
     type: String,
-    unique: true,
+    unique: false,
     required: true
   },
   name: {
@@ -22,10 +22,10 @@ const ProductSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  createdAt: {
-    type: Date,
-    default: Date.now()
+  amount: {
+      type: Number,
+      required: true
   }
 })
 
-module.exports = ProductSchema
+module.exports = OrderProductSchema
