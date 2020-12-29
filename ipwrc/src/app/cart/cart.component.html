@@ -17,7 +17,11 @@
         </thead>
         <tbody>
           <tr *ngFor='let item of playboiCarti; index as i;'>
-            <th scope="row" >{{item.amount}}</th>
+            <th scope="row">
+                <button type="button" class="btn btn-primary btn-sm">+</button>
+                {{item.amount}}
+                <button type="button" class="btn btn-primary btn-sm">-</button>
+            </th>
             <td><a href="/product/{{item.product[0].slug}}">{{item.product[0].name}}</a></td>
             <td>&euro; {{item.product[0].price}}</td>
           </tr>
