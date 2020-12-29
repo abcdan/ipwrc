@@ -13,4 +13,10 @@ export class ProductsService {
       "product/all",
     )
   }
+
+  getProduct(slug: string) {
+    return this.httpClient.get(
+      "product/fetch/" + slug
+    )
+  }
 }

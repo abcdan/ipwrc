@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="285d52ca-2a78-4ac5-b1af-9d5a95eb9ab6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ipwrc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sexyboy.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/sexyboy.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/models/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/models/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/product/product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/app/products/products.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/app/products/products.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwrc/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ipwrc/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ts.external.directory.path" value="C:\Users\Daniel\Documents\ipwrc\ipwrc\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,6 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607347512174</updated>
       <workItem from="1607347513600" duration="322000" />
+      <workItem from="1609254339401" duration="96000" />
     </task>
     <servers />
   </component>
@@ -57,6 +67,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

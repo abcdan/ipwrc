@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product'
+import { ProductsService } from './products.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -8,23 +9,18 @@ import { Product } from '../models/product'
 export class ProductsComponent implements OnInit {
 
   products: Product[]
-  constructor() {
+  constructor(private productsService: ProductsService) {
     this.products = []
    }
 
   ngOnInit(): void {
-    this.products.push(
-      new Product("Kanker mooie fiets", "Deze fiets is kanker mooi", "https://file.coffee/u/DbO6N-PokW.jpeg", 6.90)
-    )
-    this.products.push(
-      new Product("Kanker mooie fiets", "Deze fiets is kanker mooi", "https://file.coffee/u/DbO6N-PokW.jpeg", 6.90)
-    )
-    this.products.push(
-      new Product("Kanker mooie fiets", "Deze fiets is kanker mooi", "https://file.coffee/u/DbO6N-PokW.jpeg", 6.90)
-    )
-    this.products.push(
-      new Product("Kanker mooie fiets", "Deze fiets is kanker mooi", "https://file.coffee/u/DbO6N-PokW.jpeg", 6.90)
-    )
+    this.productsService.getProducts().subscribe((response: any)=> {
+      console.log(response)
+      this.products = response.products as Product[]
+    }, error => {
+      // TODO display appropriate error
+      // nee lukas
+    });
   }
 
 }

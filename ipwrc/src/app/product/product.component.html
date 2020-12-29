@@ -1,14 +1,13 @@
-<div class="container">
+<div *ngIf="product" class="container">
     <div class="row">
       <div class="col">
-          <img class="product-image" src="https://file.coffee/u/R_30Lnokdw.jpeg">
+          <img class="product-image" src="{{product[0].image}}">
       </div>
       <div class="col details">
-          <h1>Waterval</h1>
-          <span class="pricing bg-sandy">&euro; 6,-</span>
-          <p>Dit heb je echt niet nodig in je leven maar boeien ruurd.</p>
-          <p>Fucking hell</p>
-          <button type="button" class="btn btn-primary bg-indigo">Deze ga ik kaufen</button>
+          <h1>{{product[0].name}}</h1>
+          <span class="pricing bg-sandy">&euro; {{product[0].price}}</span>
+          <p>{{product[0].description}}</p>
+          <button type="button" class="btn btn-primary bg-indigo">Add to cart!</button>
       </div>
     </div>
   </div>

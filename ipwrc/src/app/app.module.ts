@@ -11,7 +11,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { ItemComponent } from './cart/item/item.component';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { HttpClientInterceptor } from './api/http-client.interceptor';
 
@@ -29,7 +29,8 @@ import { HttpClientInterceptor } from './api/http-client.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [HttpClient,
     HttpClient,

@@ -5,8 +5,10 @@ const bodyParser = require('body-parser')
 const app = express()
 const fs = require('fs')
 const path = require('path')
+const cors = require('cors')
 
 app.use(bodyParser.json())
+app.use(cors())
 require('./database/init')()
 
 global.models = require('./database/models')
