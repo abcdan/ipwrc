@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ItemComponent } from './item/item.component';
 import {cartItem} from "../models/cartItem";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  public cartSubject = new BehaviorSubject(this.getCartItems())
 
   constructor() { }
 
-  getShoppingCartItems(): cartItem[] {
+  getCartItems(): cartItem[] {
     try {
       const cartItems = localStorage.getItem('cart')
       const items = JSON.parse(<string>cartItems) as cartItem[];
@@ -23,10 +25,8 @@ export class CartService {
 
   addProductToShoppingCart(item: cartItem): boolean {
     try {
-      // add to existing products
-      let currentShoppingItems = this.getShoppingCartItems();
+      let currentShoppingItems = this.getCartItems();
 
-      // if same product we want to add to the existing amount
       const existingProductIndex = currentShoppingItems.findIndex(
         (cartItem) => cartItem.product.id == item.product.id)
 
