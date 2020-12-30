@@ -29,7 +29,7 @@ export class CartService {
 
       console.log(currentShoppingItems)
       const existingProductIndex = currentShoppingItems.findIndex(
-        (cartItem: any) => cartItem.product[0].slug === item.product[0].slug)
+        (cartItem: any) => cartItem.product.slug === item.product.slug)
         console.log(existingProductIndex)
 
       if (existingProductIndex !== -1) {

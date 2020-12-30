@@ -8,8 +8,11 @@ module.exports = (app, endpoint) => {
     try {
       const product = await Product.find({
         slug: req.params.slug
+      }).catch(e => {
+        res.send({ success: false, message: 'couldnt fetch product' })
+
       })
-      res.json(product)
+      res.json(product[0])
     } catch (e) {
       res.send({ success: false, message: 'couldnt fetch product' })
     }
