@@ -9,6 +9,7 @@ const cors = require('cors')
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use('/uploads', express.static('uploads'))
 require('./database/init')()
 
 global.models = require('./database/models')
