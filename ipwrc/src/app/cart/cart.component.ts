@@ -1,40 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
+import { SummaryComponent } from './summary/summary.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
 
-  // TOOD: rename lol, or not. it's funny cause Playboi Carti is an artist
-  playboiCarti: any[]
+  cartData: any[] | undefined
 
   constructor(private cart: CartService) { 
-    this.playboiCarti = this.cart.getCartItems()
-    console.log(this.playboiCarti)
   }
 
   ngOnInit(): void {
+    this.cartData = this.cart.getCartItems()
   }
 
-  getTotalPrice(): number {
-    let price = 0
-    this.playboiCarti.forEach(item => {
-      price += item.product[0].price 
-    })
-    return price
+  clearCart() {
+    this.cart.clearCart()
+    this.cartData = this.cart.getCartItems()
+    // Sorry docenten, het moest. Angular update niet <3
+    window.location.reload()
   }
-
-  countProducts(): number {
-    let items = 0
-    this.playboiCarti.forEach(item => {
-      items += item.amount
-    })
-    return items
-  }
-
-
-
 }

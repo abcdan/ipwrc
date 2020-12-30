@@ -1,1 +1,20 @@
-aspokdjaklsdja
+<h2>Login!</h2>
+<p>Whoop whoop, welcome back! Well... almost welcome back! You first have to log in to get access to your account!</p>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+
+<form  [formGroup]="registerForm" (ngSubmit)="submit()">
+  <div formGroupName="data">
+    <div class="mb-3">
+      <label for="email" class="form-label" [style]="changeLabelColor('data.email')">Email address</label>
+      <input type="email" class="form-control" formControlName="email" id="email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label" [style]="changeLabelColor('data.password')">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </div>
+  </form>

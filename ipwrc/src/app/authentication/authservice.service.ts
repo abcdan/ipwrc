@@ -19,6 +19,19 @@ export class AuthserviceService {
       ))
   }
 
+  register(user: user) {
+    return this.httpClient.post('user/register', user)
+      .pipe(tap(
+        (response: any) => {
+          this.saveAuthentication(response.token)
+        }
+      ))
+  }
+
+  isAdmin() {
+    return this.httpClient.get('user/check')
+  }
+
   saveAuthentication(token: string) {
     localStorage.setItem('token', token)
   }

@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
         streetNumber: new FormControl(null, [Validators.required]),
         postalCode: new FormControl(null, [Validators.required]),
         country: new FormControl(null, [Validators.required]),
+        city: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required, Validators.email]),
         password: new FormControl(null, [Validators.required])
       })
@@ -30,6 +31,7 @@ export class SignupComponent implements OnInit {
   submit() {
 
   }
+
   changeLabelColor(formControlName: string): string {
       const errorColor = 'color: #E74C3C;';
       const defaultColor = 'color: #000000;';

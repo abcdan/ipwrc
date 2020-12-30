@@ -1,10 +1,9 @@
 <br>
 <h2>Cart</h2>
 <p>Check out the amazing list of product you've added to your cart!</p>
-<div *ngIf="playboiCarti" class="row">
+<div *ngIf="cartData" class="row">
     <div class="col-3">
-        <h3>Summary</h3>
-        You've added a total of {{countProducts()}} products to your cart. This will cost you &euro; {{ getTotalPrice() }}
+      <app-summary [items]="cartData" [clearCart]="clearCart"></app-summary>
     </div>
     <div class="col-9">
     <table class="table">
@@ -16,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let item of playboiCarti; index as i;'>
+          <tr *ngFor='let item of cartData; index as i;'>
             <th scope="row">
                 <button type="button" class="btn btn-primary btn-sm">+</button>
                 {{item.amount}}

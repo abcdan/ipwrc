@@ -32,6 +32,10 @@
       <input type="text" class="form-control" formControlName="postalCode" id="postalCode">
     </div>
     <div class="mb-3">
+      <label for="city" class="form-label" [style]="changeLabelColor('data.city')">City</label>
+      <input type="text" class="form-control" formControlName="city" id="city">
+    </div>
+    <div class="mb-3">
       <label for="country" class="form-label" [style]="changeLabelColor('data.country')">Country</label>
       <input type="text" class="form-control" formControlName="country" id="country">
     </div>

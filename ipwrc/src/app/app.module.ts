@@ -14,6 +14,7 @@ import { ItemComponent } from './cart/item/item.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { HttpClientInterceptor } from './api/http-client.interceptor';
+import { SummaryComponent } from './cart/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientInterceptor } from './api/http-client.interceptor';
     NavigationComponent,
     HomeComponent,
     AccountComponent,
-    ItemComponent
+    ItemComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
