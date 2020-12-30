@@ -5,7 +5,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { EditProductComponent } from './edit-product/edit-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewProductComponent } from './new-product/new-product.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,10 @@ const routes: Routes = [
     path: 'products', component: ProductsComponent, canActivate: [AdminGuard],
   },
   {
-    path: 'edit-product/:productId', component: EditProductComponent, canActivate: [AdminGuard],
+    path: 'edit-product/:slug', component: EditProductComponent, canActivate: [AdminGuard],
+  },
+  {
+    path: 'new-product', component: NewProductComponent, canActivate: [AdminGuard],
   },
 ]
 
@@ -24,10 +28,11 @@ const routes: Routes = [
     OrdersComponent,
     ProductsComponent,
     EditProductComponent,
+    NewProductComponent,
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

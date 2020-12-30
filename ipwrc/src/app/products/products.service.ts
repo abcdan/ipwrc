@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,15 @@ export class ProductsService {
     return this.httpClient.get(
       "product/fetch/" + slug
     )
+  }
+
+  updateProduct(slug: string, product: Product) {
+    return this.httpClient.post(
+      "product/edit/" + slug, product)
+  }
+  
+  createProduct(slug: string, product: Product) {
+    return this.httpClient.post(
+      "product/create/" + slug, product)
   }
 }

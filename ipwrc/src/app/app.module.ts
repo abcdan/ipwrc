@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { environment } from 'src/environments/environment';
 import { HttpClientInterceptor } from './api/http-client.interceptor';
 import { SummaryComponent } from './cart/summary/summary.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SummaryComponent } from './cart/summary/summary.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule

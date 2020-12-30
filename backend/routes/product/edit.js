@@ -1,33 +1,28 @@
-const Product = require('../../database/models/Product')
 const authentication = require('../../middleware/authentication')
 
 module.exports = (app, endpoint) => {
   /**
-  * Create a new product
+  * Edit a project
   */
-  app.post(endpoint, authentication, async (req, res) => {
-    console.log(req.user.admin)
-    console.log(req.user)
+  app.post(endpoint + '/:slug', authentication, async (req, res) => {
+
     if (!req.user.admin) { return res.status(401).json({ success: false, message: 'you\'re not an admin' }) }
     const { slug, name, description, price, image } = req.body
     if (!slug || !name || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, name, description, price, image' }) }
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
-
     try {
-      const product = new Product({
-        slug,
-        name,
-        description,
-        price,
-        image
+      const product = global.models('product').update({
+        slug: req.params.slug
       })
 
-      await product.save()
+      await product.update({
+        slug, name, description, price, image
+      })
 
       res.json(product)
     } catch (e) {
       console.log(e)
-      res.send({ success: false, message: 'couldnt create product' })
+      res.status(400).send({ success: false, message: 'couldnt create product' })
     }
   })
 }
