@@ -47,6 +47,7 @@ export class AuthserviceService {
   }
 
   signOut() {
+    localStorage.setItem('token', '')
     localStorage.removeItem('token')
   }
 }

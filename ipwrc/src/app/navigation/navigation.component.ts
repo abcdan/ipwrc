@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthserviceService } from '../authentication/authservice.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthserviceService) { 
+  }
+
+  admin: boolean = false
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.isAdmin()
+    }, 5000)
+    this.isAdmin()
+  }
+
+  isAdmin() {
+    this.authService.check().subscribe((res: any)=> {
+      this.admin = res.admin
+    }, err => {
+
+    })
   }
 
 }

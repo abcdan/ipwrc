@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   }
 
   signout() {
-    this.authService.signOut
+    this.authService.signOut()
     this.router.navigate(['/auth/choose'])
   }
 
