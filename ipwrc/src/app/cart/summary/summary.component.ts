@@ -23,7 +23,7 @@ export class SummaryComponent implements OnInit {
       let price = 0
       this.items.forEach(item => {
         let _item: any = item
-        price += _item.product[0].price 
+        price += _item.product[0].price * _item.amount
       })
       return price
     }

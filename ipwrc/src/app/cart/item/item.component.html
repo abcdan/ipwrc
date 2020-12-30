@@ -1,1 +1,8 @@
-<p>item works!</p>
+
+<th scope="row">
+    <button type="button" class="btn btn-primary btn-sm" (click)="updateAmount(item.amount + 1)">+</button>
+    {{item.amount}}
+    <button type="button" class="btn btn-primary btn-sm" (click)="updateAmount(item.amount - 1)" >-</button>
+</th>
+<td><a href="/product/{{item.product[0].slug}}">{{item.product[0].name}}</a></td>
+<td>&euro; {{item.product[0].price * item.amount}}</td>
