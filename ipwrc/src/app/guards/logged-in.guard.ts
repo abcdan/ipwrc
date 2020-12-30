@@ -6,7 +6,7 @@ import { AuthserviceService } from '../authentication/authservice.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class LoggedInGuard implements CanActivate {
   constructor(private authService: AuthserviceService,
     private router: Router) {}
      canActivate(
@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         const response = this.authService.check().toPromise().then (r => {
           let res = r as any
-          return res.admin
+          return res.success
         }).catch(e => {
           this.authService.signOut()
           this.router.navigate(['/auth/choose'])
@@ -22,5 +22,6 @@ export class AdminGuard implements CanActivate {
         })
         return response
   }
+  
   
 }

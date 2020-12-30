@@ -9,7 +9,6 @@ import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
-import { AccountComponent } from './account/account.component';
 import { ItemComponent } from './cart/item/item.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -24,7 +23,6 @@ import { SummaryComponent } from './cart/summary/summary.component';
     ProductsComponent,
     NavigationComponent,
     HomeComponent,
-    AccountComponent,
     ItemComponent,
     SummaryComponent
   ],

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AccountComponent } from './account/account.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
@@ -18,7 +17,10 @@ const routes: Routes = [
       path: 'auth',
       loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
     },
-    {path: 'account', component: AccountComponent},
+    {
+      path: 'account',
+      loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
+    },
     {path: 'cart', component: CartComponent}
 ];
 

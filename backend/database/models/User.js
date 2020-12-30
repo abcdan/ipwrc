@@ -29,6 +29,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  city: {
+    type: String,
+    required: false
+  },
   email: {
     type: String,
     required: true

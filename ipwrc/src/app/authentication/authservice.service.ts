@@ -19,8 +19,8 @@ export class AuthserviceService {
       ))
   }
 
-  register(user: user) {
-    return this.httpClient.post('user/register', user)
+  signup(user: user) {
+    return this.httpClient.post('user/signup', user)
       .pipe(tap(
         (response: any) => {
           this.saveAuthentication(response.token)
@@ -28,7 +28,7 @@ export class AuthserviceService {
       ))
   }
 
-  isAdmin() {
+  check() {
     return this.httpClient.get('user/check')
   }
 

@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken')
 
 module.exports = (app, endpoint) => {
   app.post(endpoint, async (req, res) => {
-    const { username, email, password, firstName, lastName, street, streetNumber, postalCode, country } = req.body
-    if (!username || !email || !password || !firstName || !lastName ||  !street || !streetNumber || !postalCode || !country) { return res.status(400).json({ success: false, message: 'you forgot `username`, `email` or`password or something from firstName, lastName, street, streetNumber, postalCode, country' }) }
+    const { username, email, password, firstName, city, lastName, street, streetNumber, postalCode, country } = req.body
+    if (!username || !email || !password || !firstName || !lastName ||  !street || !city || !streetNumber || !postalCode || !country) { return res.status(400).json({ success: false, message: 'you forgot `username`, `email`, `city` or`password or something from firstName, lastName, street, streetNumber, postalCode, country' }) }
     try {
       let user = await User.findOne({
         email
@@ -21,7 +21,8 @@ module.exports = (app, endpoint) => {
         street, 
         streetNumber,
         postalCode,
-        country
+        country,
+        city
       })
 
       const salt = await bcrypt.genSalt(10)

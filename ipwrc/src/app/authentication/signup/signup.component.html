@@ -5,11 +5,16 @@
     <li>Viewing your orders</li>
     <li>Become cool!</li>
 </ul>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+
 <form  [formGroup]="registerForm" (ngSubmit)="submit()">
   <div formGroupName="data">
     <div class="mb-3">
-      <label for="userName" class="form-label" [style]="changeLabelColor('data.userName')">Username</label>
-      <input type="text" class="form-control" formControlName="userName" id="userName">
+      <label for="userName" class="form-label" [style]="changeLabelColor('data.username')">Username</label>
+      <input type="text" class="form-control" formControlName="username" id="userName">
     </div>
     <div class="mb-3">
       <label for="firstName" class="form-label" [style]="changeLabelColor('data.firstName')">First name</label>

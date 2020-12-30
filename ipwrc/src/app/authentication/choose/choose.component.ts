@@ -17,7 +17,7 @@ export class ChooseComponent implements OnInit {
     this.router.navigate(['/auth/login'])
   }
 
-  toRegister() {
-    this.router.navigate(['/auth/register'])
+  toSignup() {
+    this.router.navigate(['/auth/signup'])
   }
 }
