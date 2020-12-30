@@ -5,6 +5,8 @@ const AWS = require('aws-sdk')
 
 const multer = require('multer')
 
+const fs = require('fs')
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './uploads/')
@@ -19,10 +21,13 @@ const storage = multer.diskStorage({
 
 
 module.exports = (app, endpoint) => {
-  app.post(endpoint, upload.single('file'), async (req, res) => {
+  app.post(endpoint, authentication, upload.single('file'), async (req, res) => {
+      if(!req.user.admin) {
+        fs.unlink('./uploads/' + req.file.filename)
+          return res.status(401).json({ success: false, message: 'you\'re not an admin' })
+      }
       res.json( {
           location: req.file.filename
       })
-      console.log(req.files)
   })
 }
