@@ -5,42 +5,44 @@
     <li>Viewing your orders</li>
     <li>Become cool!</li>
 </ul>
-<form>
+<form  [formGroup]="registerForm" (ngSubmit)="submit()">
+  <div formGroupName="data">
     <div class="mb-3">
-      <label for="userName" class="form-label">Username</label>
-      <input type="text" class="form-control" id="userName">
+      <label for="userName" class="form-label" [style]="changeLabelColor('data.userName')">Username</label>
+      <input type="text" class="form-control" formControlName="userName" id="userName">
     </div>
     <div class="mb-3">
-      <label for="firstName" class="form-label">First name</label>
-      <input type="text" class="form-control" id="firstName">
+      <label for="firstName" class="form-label" [style]="changeLabelColor('data.firstName')">First name</label>
+      <input type="text" class="form-control" formControlName="firstName" id="firstName">
     </div>
     <div class="mb-3">
-      <label for="lastName" class="form-label">Last name</label>
-      <input type="text" class="form-control" id="lastName">
+      <label for="lastName" class="form-label" [style]="changeLabelColor('data.lastName')">Last name</label>
+      <input type="text" class="form-control" formControlName="lastName" id="lastName">
     </div>
     <div class="mb-3">
-      <label for="street" class="form-label">Street</label>
-      <input type="text" class="form-control" id="street">
+      <label for="street" class="form-label" [style]="changeLabelColor('data.street')">Street</label>
+      <input type="text" class="form-control" formControlName="street" id="street">
     </div>
     <div class="mb-3">
-      <label for="streetNumber" class="form-label">Street number</label>
-      <input type="text" class="form-control" id="streetNumber">
+      <label for="streetNumber" class="form-label" [style]="changeLabelColor('data.streetNumber')">Street number</label>
+      <input type="text" class="form-control" formControlName="streetNumber" id="streetNumber">
     </div>
     <div class="mb-3">
-      <label for="postalCode" class="form-label">Postalcode</label>
-      <input type="text" class="form-control" id="postalCode">
+      <label for="postalCode" class="form-label" [style]="changeLabelColor('data.postalCode')">Postalcode</label>
+      <input type="text" class="form-control" formControlName="postalCode" id="postalCode">
     </div>
     <div class="mb-3">
-      <label for="country" class="form-label">Country</label>
-      <input type="text" class="form-control" id="country">
+      <label for="country" class="form-label" [style]="changeLabelColor('data.country')">Country</label>
+      <input type="text" class="form-control" formControlName="country" id="country">
     </div>
     <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email">
+      <label for="email" class="form-label" [style]="changeLabelColor('data.email')">Email address</label>
+      <input type="email" class="form-control" formControlName="email" id="email">
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password">
+      <label for="password" class="form-label" [style]="changeLabelColor('data.password')">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password">
     </div>
     <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </div>
   </form>
