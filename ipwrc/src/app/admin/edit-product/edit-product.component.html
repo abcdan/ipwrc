@@ -1,0 +1,32 @@
+<h2>Add or edit product!</h2>
+<p>On this page you can simply add a new product or edit an exisitng product.</p>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+
+<form  [formGroup]="editForm" (ngSubmit)="submit()">
+  <div formGroupName="data">
+    <div class="mb-3">
+      <label for="slug" class="form-label" [style]="changeLabelColor('data.slug')">Slug</label>
+      <input type="text" class="form-control" formControlName="slug" id="slug">
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label" [style]="changeLabelColor('data.name')">Product name</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label" [style]="changeLabelColor('data.description')">Product description</label>
+      <input type="text" class="form-control" formControlName="description" id="description">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label" [style]="changeLabelColor('data.price')">Price</label>
+      <input type="number" class="form-control" formControlName="price" id="price">
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label" [style]="changeLabelColor('data.image')">Image</label>
+      <input type="text" class="form-control" formControlName="image" id="image">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </div>
+  </form>

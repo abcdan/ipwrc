@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthserviceService } from '../authentication/authservice.service';
 import { Product } from '../models/product'
 import { ProductsService } from './products.service';
 @Component({
@@ -8,19 +9,25 @@ import { ProductsService } from './products.service';
 })
 export class ProductsComponent implements OnInit {
 
+  admin: boolean = false
   products: Product[]
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService,
+    private authService: AuthserviceService) {
     this.products = []
    }
 
   ngOnInit(): void {
+    this.isAdmin()
     this.productsService.getProducts().subscribe((response: any)=> {
       console.log(response)
       this.products = response.products as Product[]
-    }, error => {
-      // TODO display appropriate error
-      // nee lukas
     });
+  }
+
+  isAdmin() {
+    this.authService.check().subscribe((res: any) => {
+      this.admin = res.admin as boolean
+    })
   }
 
 }
