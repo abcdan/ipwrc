@@ -14,7 +14,13 @@ export class NewProductComponent implements OnInit {
   @ViewChild('productForm') productForm: NgForm | undefined
   // editForm: FormGroup | any
   error: string = ''
-  productToEdit: Product | undefined | any
+  productToEdit = {
+    slug: 'new',
+    name: '',
+    description: '',
+    price: 0,
+    image: 'https://file.coffee/u/MBR78Dra7g.jpeg'
+  } as Product
 
   constructor(private authService: AuthserviceService,
     private router: Router,

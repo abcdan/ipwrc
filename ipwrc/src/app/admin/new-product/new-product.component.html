@@ -4,7 +4,7 @@
 <div *ngIf="error" class="alert alert-danger" role="alert">
     {{error}}
 </div>
-<form (ngSubmit)="submit()" #productForm="ngForm" ngForm *ngIf="productToEdit">
+<form (ngSubmit)="submit()" #productForm="ngForm" ngForm>
   <div class="mb-3">
     <label for="slug" class="form-label">Slug</label>
     <input type="text" class="form-control"  name="slug" ngModel required [(ngModel)]="productToEdit.slug">
