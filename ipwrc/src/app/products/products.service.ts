@@ -26,8 +26,8 @@ export class ProductsService {
       "product/edit/" + slug, product)
   }
   
-  createProduct(slug: string, product: Product) {
+  createProduct(product: Product) {
     return this.httpClient.post(
-      "product/create/" + slug, product)
+      "product/create/", product)
   }
 }

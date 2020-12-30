@@ -15,11 +15,11 @@ module.exports = (app, endpoint) => {
         slug: req.params.slug
       })
 
-      await product.update({
+      await product.updateOne({
         slug, name, description, price, image
       })
 
-      res.json(product)
+      res.json({ success: true, message: 'updated'})
     } catch (e) {
       console.log(e)
       res.status(400).send({ success: false, message: 'couldnt create product' })
