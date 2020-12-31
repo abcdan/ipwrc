@@ -18,7 +18,7 @@ export class NewProductComponent implements OnInit {
     slug: '',
     name: '',
     description: '',
-    price: 0,
+    price: 1,
     image: 'https://file.coffee/u/MBR78Dra7g.jpeg'
   } as Product
 
