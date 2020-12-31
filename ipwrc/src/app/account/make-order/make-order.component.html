@@ -6,7 +6,7 @@
 </div>
 <div *ngIf="cartData" class="row">
     <div class="col-md-3 col-sm-12">
-      <app-order-summary [items]="cartData" [clearCart]="clearCart"></app-order-summary>
+      <app-order-summary [items]="cartData" [makeOrderFromCart]="makeOrderFromCart"></app-order-summary>
     </div>
     <div class="col-md-9 col-sm-12 card shadow-sm p-3 rounded" >
         <div class="card-body">

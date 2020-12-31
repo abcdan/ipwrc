@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
+import { orderItem } from 'src/app/models/orderItem';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-make-order',
@@ -10,7 +13,8 @@ export class MakeOrderComponent implements OnInit {
   cartData: any[] | undefined
   editable: boolean =  true
 
-  constructor(private cart: CartService) { 
+  constructor(private cart: CartService,
+    private router: Router) { 
   }
 
   ngOnInit(): void {
@@ -20,18 +24,6 @@ export class MakeOrderComponent implements OnInit {
   
 
   update(item: any): void {
-    if(this.cartData) {
-      for (let i = 0; i < this.cartData.length; i++) {
-        if (this.cartData[i] === item) {
-          this.cartData[i] = item;
-        }
-      }
-      this.cart.setCart(this.cartData)
-    }
-  }
-
-  removeFromCart(item: any): void {
-    // TODO: add remove from cart
   }
 
   onClearCart() {
@@ -45,6 +37,31 @@ export class MakeOrderComponent implements OnInit {
     this.cart.clearCart()
     this.cartData = this.cart.getCartItems()
     window.location.reload()
+  }
+
+  makeOrderFromCart() {
+    const localCartData = this.cart.getCartItems()
+    
+    const orderData = []
+    for (let i = 0; i < localCartData.length; i++) {
+      const element = localCartData[i];
+      let orderProduct = {
+        amount: element.amount,
+        slug: element.product.slug
+      } as orderItem
+      orderData.push(orderProduct)
+    }
+
+    console.log(orderData)
+
+    this.cart.createOrder(orderData).subscribe(res =>{
+      this.cart.setCart([])
+      window.location.href="/account/orders"
+      // this.router.navigate(['/account/orders'])
+    }, err => {
+      Swal.fire('Error', 'Couldn\'t create the order. Try again (maybe clear your cart?)', 'error')
+      console.log(err)
+    })
   }
 
 }

@@ -9,14 +9,15 @@ module.exports = (app, endpoint) => {
   */
   app.post(endpoint, authentication, async (req, res) => {
     const { products } = req.body
-    if (!products) { return res.status(400).json({ success: false, message: 'your forgot to give an array of products with id/amount' }) }
+    if (!products || !products.length === 0) { return res.status(400).json({ success: false, message: 'your forgot to give an array of products with id/amount' }) }
     try {
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
-        const product = await Product.find({
+        const product = await Product.findOne({
           slug: products[i].slug
         })
-        const orderProduct = new OrderProduct({
+        console.log(product)
+        const orderProduct = await new OrderProduct({
           slug: product.slug,
           name: product.name,
           price: product.price,

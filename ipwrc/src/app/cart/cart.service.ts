@@ -56,7 +56,9 @@ export class CartService {
   }
 
   createOrder(order: any) {
-    return this.httpClient.post('order/create', order)
+    return this.httpClient.post('order/create', {
+      products: order
+    })
   }
 
 }

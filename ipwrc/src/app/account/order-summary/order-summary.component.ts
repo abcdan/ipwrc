@@ -9,7 +9,7 @@ import { cartItem } from 'src/app/models/cartItem';
 })
 export class OrderSummaryComponent implements OnInit {
   @Input() items: cartItem[] | undefined
-  @Input() clearCart: Function | any;
+  @Input() makeOrderFromCart: Function | any;
 
   constructor(private cart: CartService) { }
 
@@ -39,5 +39,9 @@ export class OrderSummaryComponent implements OnInit {
       return itemCount
     }
     return 0
+  }
+
+  placeOrder() {
+    this.makeOrderFromCart()
   }
 }
