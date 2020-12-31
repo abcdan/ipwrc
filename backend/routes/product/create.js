@@ -14,6 +14,16 @@ module.exports = (app, endpoint) => {
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
 
     try {
+
+      const findProduct = await Product.find({
+        slug
+      })
+
+      if(findProduct.length > 0) {
+        return res.status(400).json({success: false, message: 'item already exists'})
+      }
+
+      console.log(await findProduct)
       const product = new Product({
         slug,
         name,

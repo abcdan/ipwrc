@@ -5,12 +5,16 @@ module.exports = (app, endpoint) => {
   /**
   * Delete a product based on the id
   */
-  app.delete(endpoint + '/:id', authentication, async (req, res) => {
+  app.delete(endpoint + '/:slug', authentication, async (req, res) => {
+    const { slug } = req.params
     if (!req.user.admin) { return res.status(401).json({ success: false, message: 'you\'re not an admin' }) }
+    if (!slug) { return res.status(400).json({success: false, message: 'you forgot the product slug' })}
     try {
-      const product = await Product.findById(req.params.id)
+      const product = await Product.find({
+        slug
+      })
       await product.delete()
-      res.json(product)
+      res.json({ success: true, message: 'product deleted'})
     } catch (e) {
       console.log(e)
       res.send({ success: false, message: 'couldnt fetch product' })

@@ -15,7 +15,7 @@ export class NewProductComponent implements OnInit {
   // editForm: FormGroup | any
   error: string = ''
   productToEdit = {
-    slug: 'new',
+    slug: '',
     name: '',
     description: '',
     price: 0,
@@ -29,12 +29,6 @@ export class NewProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params: any) => {
-      this.productsService.getProduct(params['slug']).subscribe((res: any) => {
-        this.productToEdit = res as Product
-      }, err => {
-      })
-    })
   }
 
   submit() {
