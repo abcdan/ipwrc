@@ -30,4 +30,12 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  deleteProduct(slug: string) {
+    console.log(slug)
+    this.productsService.deleteProduct(slug).subscribe(res => {
+      window.location.reload()
+      console.log(res)
+    })
+  }
+
 }

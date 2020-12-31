@@ -10,10 +10,9 @@ module.exports = (app, endpoint) => {
     if (!req.user.admin) { return res.status(401).json({ success: false, message: 'you\'re not an admin' }) }
     if (!slug) { return res.status(400).json({success: false, message: 'you forgot the product slug' })}
     try {
-      const product = await Product.find({
+      const product = await Product.deleteOne({
         slug
       })
-      await product.delete()
       res.json({ success: true, message: 'product deleted'})
     } catch (e) {
       console.log(e)

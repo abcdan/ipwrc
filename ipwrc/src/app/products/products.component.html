@@ -12,7 +12,7 @@
             <div class="btn-group spacing-2">
                 <a type="button" class="btn btn-sm btn-secondary" href="/product/{{product.slug}}">View</a>
                 <a *ngIf="admin" type="button" class="btn btn-sm btn-warning" href="/admin/edit-product/{{product.slug}}">Edit</a>
-                <button *ngIf="admin" type="button" class="btn btn-sm btn-danger">Delete</button>
+                <button *ngIf="admin" type="button" class="btn btn-sm btn-danger" (click)="deleteProduct(product.slug)">Delete</button>
             </div>
             <small class="text-muted">&euro; {{product.price }}</small>
             </div>

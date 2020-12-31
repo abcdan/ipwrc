@@ -30,4 +30,9 @@ export class ProductsService {
     return this.httpClient.post(
       "product/create/", product)
   }
+
+  deleteProduct(slug: string) {
+    return this.httpClient.delete(
+      "product/delete/" + slug)
+  }
 }
