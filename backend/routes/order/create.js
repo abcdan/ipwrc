@@ -13,7 +13,9 @@ module.exports = (app, endpoint) => {
     try {
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
-        const product = await Product.findById(products[i].id)
+        const product = await Product.find({
+          slug: products[i].slug
+        })
         const orderProduct = new OrderProduct({
           slug: product.slug,
           name: product.name,

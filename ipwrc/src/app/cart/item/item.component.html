@@ -2,9 +2,9 @@
     <div class="col-3">
         <div class="btn-group" role="group">
             <button *ngIf="editable" type="button" class="btn btn-primary btn-sm" (click)="updateAmount(item.amount + 1)">+</button>
+            <button type="button" class="btn btn-info" disabled>{{item.amount}}</button>
             <button *ngIf="editable" type="button" class="btn btn-danger btn-sm" (click)="updateAmount(item.amount - 1)" >-</button>
         </div>
-        {{item.amount}}
     </div>
     <div class="col-6">
         <a href="/product/{{item.product.slug}}">{{item.product.name}}</a>

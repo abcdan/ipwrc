@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItemComponent } from './item/item.component';
 import {cartItem} from "../models/cartItem";
 import {BehaviorSubject} from "rxjs";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {BehaviorSubject} from "rxjs";
 export class CartService {
   public cartSubject = new BehaviorSubject(this.getCartItems())
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getCartItems(): cartItem[] {
     try {
@@ -53,4 +54,9 @@ export class CartService {
   clearCart() {
     localStorage.setItem('cart', JSON.stringify([]))
   }
+
+  createOrder(order: any) {
+    return this.httpClient.post('order/create', order)
+  }
+
 }

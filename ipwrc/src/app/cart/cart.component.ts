@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
 
   update(item: any): void {
     if(this.cartData) {
+      if(item.amount < 1) { return this.removeFromCart(item)}
       for (let i = 0; i < this.cartData.length; i++) {
         if (this.cartData[i] === item) {
           this.cartData[i] = item;
@@ -34,7 +35,14 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(item: any): void {
-    // TODO: add remove from cart
+    if(this.cartData) {
+      for(let i = 0; i < this.cartData.length; i++){
+        if (this.cartData[i] === item) {
+          this.cartData.splice(i, 1);
+        }
+      }
+      this.cart.setCart(this.cartData)
+    }
   }
 
   onClearCart() {
