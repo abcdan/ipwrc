@@ -4,6 +4,7 @@ import { CartService } from '../cart/cart.service';
 import { Product } from '../models/product';
 import { cartItem } from '../models/cartItem';
 import { ProductsService } from '../products/products.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -37,6 +38,7 @@ export class ProductComponent implements OnInit {
       amount: 1
     } as cartItem 
     this.cart.addProductToShoppingCart(item)
+    Swal.fire('Added to cart!', 'You\'ve successfully added the item to your cart', 'success')
   }
 
 }

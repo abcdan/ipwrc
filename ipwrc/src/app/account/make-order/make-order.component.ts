@@ -1,15 +1,12 @@
-import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { cartItem } from '../models/cartItem';
-import { Product } from '../models/product';
-import { CartService } from './cart.service';
-import { SummaryComponent } from './summary/summary.component';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  selector: 'app-make-order',
+  templateUrl: './make-order.component.html',
+  styleUrls: ['./make-order.component.css']
 })
-export class CartComponent implements OnInit {
+export class MakeOrderComponent implements OnInit {
   cartData: any[] | undefined
   editable: boolean =  true
 
@@ -49,4 +46,5 @@ export class CartComponent implements OnInit {
     this.cartData = this.cart.getCartItems()
     window.location.reload()
   }
+
 }

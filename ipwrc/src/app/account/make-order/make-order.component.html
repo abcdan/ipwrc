@@ -1,0 +1,35 @@
+<br>
+<h2>Order Overview</h2>
+<p>This is the final step before you make your order... double check everything is correct. .</p>
+<div class="alert alert-primary" role="alert">
+    When you place the order you'll have to send the money using SEPA to <b>NL69FAKE1337133769</b>. A website administrator will put your order on paid whenever they've received the money
+</div>
+<div *ngIf="cartData" class="row">
+    <div class="col-md-3 col-sm-12">
+      <app-order-summary [items]="cartData" [clearCart]="clearCart"></app-order-summary>
+    </div>
+    <div class="col-md-9 col-sm-12 card shadow-sm p-3 rounded" >
+        <div class="card-body">
+      <div class="row font-weight-bold" >
+          <div class="col-3">
+            Amount
+          </div>
+          <div class="col-6">
+            Product
+          </div>
+          <div class="col-3">
+            Price
+          </div>
+      </div>
+      <div>
+          <hr>
+        <app-order-item *ngFor="let item of cartData;"
+          [item]="item"
+          (updated)="update($event)"
+          [editable]="editable"
+          >
+        </app-order-item>
+      </div>
+    </div>
+    </div>
+</div>

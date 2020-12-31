@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { cartItem } from 'src/app/models/cartItem';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  selector: 'app-order-item',
+  templateUrl: './order-item.component.html',
+  styleUrls: ['./order-item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class OrderItemComponent implements OnInit {
   @Input() item: cartItem | any
   @Output() updated: EventEmitter<cartItem> = new EventEmitter();
   @Input() editable: boolean | any
@@ -21,4 +21,5 @@ export class ItemComponent implements OnInit {
     this.item.amount = newAmount
     this.updated.emit(this.item)
   }
+
 }

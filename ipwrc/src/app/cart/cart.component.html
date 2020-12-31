@@ -2,25 +2,31 @@
 <h2>Cart</h2>
 <p>Check out the amazing list of product you've added to your cart!</p>
 <div *ngIf="cartData" class="row">
-    <div class="col-3">
-      <app-summary [items]="cartData" [clearCart]="clearCart"></app-summary>
+  <div class="col-3">
+    <app-summary [items]="cartData" [clearCart]="clearCart"></app-summary>
+  </div>
+  <div class="col-md-9 col-sm-12 card shadow-sm p-3 rounded" >
+      <div class="card-body">
+    <div class="row font-weight-bold" >
+        <div class="col-3">
+          Amount
+        </div>
+        <div class="col-6">
+          Product
+        </div>
+        <div class="col-3">
+          Price
+        </div>
     </div>
-    <div class="col-9">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Amount</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <app-item *ngFor="let item of cartData;"
-            [item]="item"
-            (updated)="update($event)"
-            >
-          </app-item>
-        </tbody>
-      </table>
+    <div>
+        <hr>
+      <app-item *ngFor="let item of cartData;"
+        [item]="item"
+        (updated)="update($event)"
+        [editable]="editable"
+        >
+      </app-item>
     </div>
+  </div>
+  </div>
 </div>

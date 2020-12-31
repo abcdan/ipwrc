@@ -1,0 +1,13 @@
+
+<div class="row">
+    <div class="col-3">
+        {{item.amount}}
+    </div>
+    <div class="col-6">
+        <a href="/product/{{item.product.slug}}">{{item.product.name}}</a>
+    </div>
+    <div class="col-3">
+        &euro; {{item.product.price * item.amount}}
+    </div>
+</div>
+<hr>
