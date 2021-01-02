@@ -32,9 +32,6 @@ module.exports = (app, endpoint) => {
         userId: req.user.id
       })
 
-      console.log(order)
-      order.save()
-
       await order.save().catch(e =>{
         console.log(e)
         return res.send({ success: false, message: 'couldnt create order' })
