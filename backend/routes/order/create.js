@@ -1,6 +1,6 @@
 const authentication = require('../../middleware/authentication')
 const mongoose = require('mongoose')
-const OrderProduct = require('../../database/models/OrderProduct')
+const OrderProduct = mongoose.model('orderproduct') 
 
 module.exports = (app, endpoint) => {
   /**
