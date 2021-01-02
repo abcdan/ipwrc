@@ -7,8 +7,12 @@ const fs = require('fs')
 const path = require('path')
 const cors = require('cors')
 
-app.use(bodyParser.json())
-app.use(cors())
+var corsOptions = {
+  origin: 'https://ipwrc.lngzl.nl',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions))
 app.use('/uploads', express.static('uploads'))
 require('./database/init')()
 
