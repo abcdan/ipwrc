@@ -20,6 +20,8 @@ module.exports = (app, endpoint) => {
         const product = await global.models('Order').findOne({
           slug: products[i].slug
         })
+
+        console.log(product)
         const orderProduct = await new OrderProduct({
           slug: product.slug,
           name: product.name,
