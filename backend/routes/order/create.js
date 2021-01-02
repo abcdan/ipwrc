@@ -30,10 +30,11 @@ module.exports = (app, endpoint) => {
           image: product.image,
           amount: products[i].amount
         })
+        console.log(orderProduct)
         productDocuments.push(await orderProduct)
       }
 
-      console.log(orderProduct)
+      console.log(productDocuments)
       const order = await new global.models('Order')({
         products: productDocuments,
         userId: req.user.id
