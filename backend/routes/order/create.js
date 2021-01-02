@@ -1,6 +1,5 @@
 const authentication = require('../../middleware/authentication')
 const mongoose = require('mongoose')
-const OrderProduct = mongoose.model('orderproduct') 
 
 module.exports = (app, endpoint) => {
   /**
@@ -16,7 +15,7 @@ module.exports = (app, endpoint) => {
         const product = await global.models('Order').findOne({
           slug: products[i].slug
         })
-        const orderProduct = new OrderProduct({
+        const orderProduct = new mongoose.model('orderproduct') ({
           slug: product.slug,
           name: product.name,
           price: product.price,
