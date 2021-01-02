@@ -9,9 +9,9 @@ import { OrderItemComponent } from './order-item/order-item.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { UpgradeToAdminComponent } from './upgrade-to-admin/upgrade-to-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OrderListComponent } from './order-list/order-list.component';
 import { OrderListItemComponent } from './order-list-item/order-list-item.component';
 import { OrderComponent } from './order/order.component';
+import { OrderDetailItemComponent } from './order-detail-item/order-detail-item.component';
 
 const routes: Routes = [
   {
@@ -19,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'orders', component: OrdersComponent, canActivate: [LoggedInGuard],
+  },
+  {
+    path: 'order/:orderId', component: OrderComponent, canActivate: [LoggedInGuard],
   },
   {
     path: 'make-order', component: MakeOrderComponent, canActivate: [LoggedInGuard],
@@ -32,7 +35,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [DashboardComponent, OrdersComponent, MakeOrderComponent, OrderItemComponent, OrderSummaryComponent, UpgradeToAdminComponent, OrderListComponent, OrderListItemComponent, OrderComponent],
+  declarations: [DashboardComponent, OrdersComponent, MakeOrderComponent, OrderItemComponent, OrderSummaryComponent, UpgradeToAdminComponent, OrderListItemComponent, OrderComponent, OrderDetailItemComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

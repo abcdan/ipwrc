@@ -1,1 +1,44 @@
-<p>order works!</p>
+<h2>Order Information</h2>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+
+<div *ngIf="order">
+    <div *ngIf="order.paid; else unpaid">
+        <span class="badge badge-success">PAID</span>
+    </div>
+    <ng-template #unpaid>
+        <span class="badge badge-danger">UNPAID</span>
+    </ng-template>
+    &nbsp;
+    <div *ngIf="order.delivered; else notDelivered">
+        <span class="badge badge-success">DELIVERED</span>
+    </div>
+    <ng-template #notDelivered>
+        <span class="badge badge-danger">NOT DELIVERED</span>
+    </ng-template>
+    <p *ngIf="!error">Awesome, this is information about order <span class="badge badge-primary">{{order._id}}</span></p>
+
+<br>
+<div class="row font-weight-bold">
+    <div class="col-3">
+        Amount
+      </div>
+      <div class="col-6">
+        Product
+      </div>
+      <div class="col-3">
+        Price
+      </div>
+</div>
+<hr>
+<app-order-detail-item *ngFor="let item of order.products"
+[item]="item">
+</app-order-detail-item>
+</div>
+
+<p>The total price of this order was <b>&euro;{{getTotalPrice()}}</b>.</p>
+<p>
+    <i>If you clicked a product and it doesn't show an item, that might be cause the item got removed from the shop or got edited.</i>
+</p>
