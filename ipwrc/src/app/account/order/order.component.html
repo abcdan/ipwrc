@@ -1,24 +1,38 @@
 <h2>Order Information</h2>
-
+<br>
 <div *ngIf="error" class="alert alert-danger" role="alert">
     {{error}}
 </div>
 
 <div *ngIf="order">
-    <div *ngIf="order.paid; else unpaid">
+<div *ngIf="admin" class="card">
+    <div class="card-body">
+        <h5 class="card-title">Admin Panel</h5>
+        <p class="card-text">Simply change things about this order, real speed.</p>
+        <button class="btn btn-primary card-link" (click)="togglePaid()">Toggle paid</button>
+        <button class="btn btn-primary card-link" (click)="toggleDelivered()">Toggle delivered</button>
+        <button class="btn btn-danger card-link" (click)="deleteOrder()">Delete order</button>
+    </div>
+</div>
+<br>
+
+
+<div class="extra">
+    <div *ngIf="order.paid">
         <span class="badge badge-success">PAID</span>
     </div>
-    <ng-template #unpaid>
+    <div *ngIf="!order.paid">
         <span class="badge badge-danger">UNPAID</span>
-    </ng-template>
-    &nbsp;
-    <div *ngIf="order.delivered; else notDelivered">
+    </div>
+    <div *ngIf="order.delivered">
         <span class="badge badge-success">DELIVERED</span>
     </div>
-    <ng-template #notDelivered>
+    <div *ngIf="!order.delivered">
         <span class="badge badge-danger">NOT DELIVERED</span>
-    </ng-template>
-    <p *ngIf="!error">Awesome, this is information about order <span class="badge badge-primary">{{order._id}}</span></p>
+    </div>
+</div>
+    
+<p *ngIf="!error">Awesome, this is information about order <span class="badge badge-primary">{{order._id}}</span></p>
 
 <br>
 <div class="row font-weight-bold">
@@ -36,9 +50,9 @@
 <app-order-detail-item *ngFor="let item of order.products"
 [item]="item">
 </app-order-detail-item>
-</div>
 
-<p>The total price of this order was <b>&euro;{{getTotalPrice()}}</b>.</p>
+<p>The total price of this order is <b>&euro;{{getTotalPrice()}}</b>.</p>
 <p>
     <i>If you clicked a product and it doesn't show an item, that might be cause the item got removed from the shop or got edited.</i>
 </p>
+</div>

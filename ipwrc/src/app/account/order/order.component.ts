@@ -13,11 +13,14 @@ export class OrderComponent implements OnInit {
 
   order: order | undefined
   error: string = ''
+  admin: boolean = false
   constructor(private orderService: OrderserviceService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute,
+    private authService: AuthserviceService) { }
 
   ngOnInit(): void {
+    this.getAdmin()
     this.route.params.subscribe((params: any) => {
       this.orderService.fetchOrder(params['orderId']).subscribe((res: any) => {
         this.order = res as order
@@ -29,6 +32,12 @@ export class OrderComponent implements OnInit {
     })
   }
 
+
+  getAdmin() {
+    this.authService.check().subscribe((res: any) => {
+      this.admin = res.admin
+    })
+  }
 
   getTotalPrice(): number {
     if(this.order) {
@@ -42,4 +51,36 @@ export class OrderComponent implements OnInit {
     return 0
   }
 
+  deleteOrder() {
+    if(this.order) { 
+      this.orderService.deleteOrder(this.order._id).subscribe((res: any) => {
+        console.log(res)
+      }, (err: any) => {
+        console.log(err)
+      })
+      // window.location.reload()
+    }
+  }
+
+  togglePaid() {
+    if(this.order) { 
+      this.orderService.togglePaid(this.order._id).subscribe((res: any) => {
+        console.log(res)
+      }, (err: any) => {
+        console.log(err)
+      })
+      window.location.reload()
+    }
+  }
+
+  toggleDelivered() {
+    if(this.order) {
+      this.orderService.toggleDelivered(this.order._id).subscribe((res: any) => {
+        console.log(res)
+      }, (err: any) => {
+        console.log(err)
+      })
+      window.location.reload()
+    }
+  }
 }
