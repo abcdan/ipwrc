@@ -17,7 +17,7 @@ module.exports = (app, endpoint) => {
           slug: products[i].slug
         })
         console.log(product)
-        const orderProduct = await new OrderProduct({
+        const orderProduct = await new global.models('OrderProduct')({
           slug: product.slug,
           name: product.name,
           price: product.price,
