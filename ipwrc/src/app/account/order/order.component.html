@@ -9,6 +9,17 @@
 </div>
 
 <div class="row">
+    <div class="col-6" > 
+        <div class="card" *ngIf="user">
+        <div class="card-body">
+            <h5 class="card-title">User Information</h5>
+            <p class="card-text">Some info about who made the order</p>
+    <b>{{user.firstName}} {{user.lastName}}</b>
+        {{user.street}} {{user.streetNumber}}, {{user.postalCode}}, {{user.city}}, {{user.country}}
+        {{user.email}}
+        </div>
+        </div>
+    </div>
     <div class="col-6">
 <div *ngIf="admin" class="card">
     <div class="card-body">
@@ -17,17 +28,6 @@
         <button class="btn btn-primary card-link" (click)="togglePaid()">Toggle paid</button>
         <button class="btn btn-primary card-link" (click)="toggleDelivered()">Toggle delivered</button>
         <button class="btn btn-danger card-link" (click)="deleteOrder()">Delete order</button>
-    </div>
-</div>
-<div class="col-6"> 
-    <div class="card">
-    <div class="card-body">
-        <h5 class="card-title">User Information</h5>
-        <p class="card-text">Some info about who made the order</p>
-<b>{{user.firstName}} {{user.lastName}}</b>
-    {{user.street}} {{user.streetNumber}}, {{user.postalCode}}, {{user.city}}, {{user.country}}
-    {{user.email}}
-    </div>
     </div>
 </div>
     </div>
