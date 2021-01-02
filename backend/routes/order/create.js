@@ -32,10 +32,14 @@ module.exports = (app, endpoint) => {
         })
         productDocuments.push(await orderProduct)
       }
+
+      console.log(orderProduct)
       const order = await new global.models('Order')({
         products: productDocuments,
         userId: req.user.id
       })
+
+      console.log(order)
 
       await order.save().catch(e =>{
         console.log(e)
