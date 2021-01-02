@@ -6,6 +6,8 @@ services:
     restart: always
     env_file:
       - .env
+    networks:
+      - base
     # ports:
     #   - 27017:27017
 
@@ -16,14 +18,19 @@ services:
     #   - 8081:8081
     env_file:
       - .env
+    networks:
+      - base
   
   api: 
     container_name: latte
     restart: always
-    build: ./src
+    build: ./backend
     env_file:
       - .env
     networks:
       - base
     ports:
       - "3000:3000"
+
+networks:
+  base:
