@@ -1,5 +1,5 @@
 const Product = require('../../database/models/Product')
-const Order = require('../../database/models/order')
+const Order = global.models('order')
 const authentication = require('../../middleware/authentication')
 const OrderProduct = require('../../database/models/OrderProduct')
 
