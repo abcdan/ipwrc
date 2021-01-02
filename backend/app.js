@@ -19,6 +19,7 @@ app.use('/uploads', express.static('uploads'))
 require('./database/init')()
 
 global.models = require('./database/models')
+global.models('OrderProduct')
 
 /**
 * Assign the right routes to endpoints using the way they are named and located
