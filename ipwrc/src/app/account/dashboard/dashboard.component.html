@@ -1,5 +1,10 @@
-<p>dashboard works!</p>
+<h2>Dashboard</h2>
+<p>Manage your account!</p>
 
-<button *ngIf="admin" type="button" class="btn btn-primary" (click)="toAdmin()">Admin</button>
-<br>
-<button type="button" class="btn btn-danger" (click)="signout()">Signout</button>
+<ul>
+    <li *ngIf="admin"><a href="/admin"><i class="fas fa-user-shield"></i> Admin</a></li>
+    <li><a href="/account/orders"><i class="fas fa-list-ul"></i> Orders</a></li>
+
+</ul>
+
+<button type="button" class="btn btn-danger" (click)="signout()"><i class="fas fa-sign-out-alt"></i> Signout</button>
