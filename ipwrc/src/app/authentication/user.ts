@@ -9,5 +9,6 @@ export interface user {
     city?: string
     street?: string
     streetNumber?: string
+    postalCode?: string
     
 }
