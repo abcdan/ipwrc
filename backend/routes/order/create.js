@@ -1,5 +1,4 @@
 const Product = require('../../database/models/Product')
-const Order = global.models('Order')
 const authentication = require('../../middleware/authentication')
 const OrderProduct = require('../../database/models/OrderProduct')
 
@@ -28,7 +27,7 @@ module.exports = (app, endpoint) => {
         })
         productDocuments.push(await orderProduct)
       }
-      const order = new Order({
+      const order = new global.models('Order')({
         products: productDocuments,
         userId: req.user.id
       })
