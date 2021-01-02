@@ -1,8 +1,8 @@
 <h2>Cart</h2>
 <p>Check out the amazing list of product you've added to your cart!</p>
 <div *ngIf="cartData" class="row">
-  <div class="col-3">
-    <app-summary [items]="cartData" [clearCart]="clearCart"></app-summary>
+  <div class="col-md-3 col-sm-12">
+    <app-summary [items]="cartData" [clearCart]="clearCart"></app-summary><br><br>
   </div>
   <div class="col-md-9 col-sm-12 card shadow-sm p-3 rounded" >
       <div class="card-body">
