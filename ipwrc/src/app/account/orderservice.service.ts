@@ -10,6 +10,9 @@ export class OrderserviceService {
 
   fetchOrder(orderId: string) {
     return this.httpClient.get('order/fetch/' + orderId)
+  }
 
+  allOrders() {
+    return this.httpClient.get('order/all')
   }
 }

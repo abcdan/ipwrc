@@ -1,0 +1,29 @@
+
+<div class="row" *ngIf="order">
+    <div class="col-4">
+        <a href="/account/order/{{order._id}}">{{order._id}}</a>
+        
+    </div>
+    <div class="col-4">
+        {{order.createdAt}}
+    </div>
+    <div class="col-4">
+        <div *ngIf="order.paid; else unpaid">
+            <span class="badge badge-success">PAID</span>
+
+        </div>
+        <ng-template #unpaid>
+            <span class="badge badge-danger">UNPAID</span>
+        </ng-template>
+        &nbsp;
+        <div *ngIf="order.delivered; else notDelivered">
+            <span class="badge badge-success">DELIVERED</span>
+
+        </div>
+        
+        <ng-template #notDelivered>
+            <span class="badge badge-danger">NOT DELIVERED</span>
+        </ng-template>
+    </div>
+</div>
+<hr>

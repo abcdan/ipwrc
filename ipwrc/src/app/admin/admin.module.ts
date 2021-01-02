@@ -8,6 +8,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { OrderListItemComponent } from './order-list-item/order-list-item.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     EditProductComponent,
     NewProductComponent,
     DashboardComponent,
+    OrderListItemComponent,
   ],
   imports: [
     CommonModule,

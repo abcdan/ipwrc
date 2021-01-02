@@ -1,1 +1,9 @@
-<p>orders works!</p>
+<h2>Orders</h2>
+<p>Check out all orders here, they might not all be yours. You're an admin.</p>
+
+<hr>
+<div  *ngIf="orders">
+    <app-order-list-item *ngFor="let order of orders"
+    [order]="order">
+    </app-order-list-item>
+</div>
