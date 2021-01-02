@@ -32,6 +32,11 @@ export class AuthserviceService {
     return this.httpClient.get('user/check')
   }
 
+  upgradeToAdmin(key: string) {
+    return this.httpClient.post('user/upgrade-to-admin', { key })
+  }
+
+
   saveAuthentication(token: string) {
     localStorage.setItem('token', token)
   }

@@ -1,0 +1,16 @@
+<br>
+<h2>Upgrade your account to admin</h2>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+
+<form  [formGroup]="upgradeForm" (ngSubmit)="submit()">
+    <div formGroupName="data">
+      <div class="mb-3">
+        <label for="upgradeToken" class="form-label" [style]="changeLabelColor('data.upgradeToken')">Upgrade Token</label>
+        <input type="text" class="form-control" formControlName="upgradeToken" id="upgradeToken">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+    </form>
