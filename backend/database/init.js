@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const MONGOURI = 'mongodb://' + process.env.MONGO_INITDB_ROOT_USERNAME + ':' + process.env.MONGO_INITDB_ROOT_PASSWORD + '@localhost:27017'
+const MONGOURI = 'mongodb://' + process.env.MONGO_INITDB_ROOT_USERNAME + ':' + process.env.MONGO_INITDB_ROOT_PASSWORD + '@mongo:27017'
 
 const initDb = async () => {
   try {
