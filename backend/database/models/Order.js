@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
-const OrderProductSchema = global.models('OrderProduct')
+const OrderProductSchema = require('../schemas/OrderProduct')
 
 const OrderSchema = mongoose.Schema({
   products: {
     type: [OrderProductSchema],
     required: true,
-    ref: '',
     unique: false
   },
   userId: {
