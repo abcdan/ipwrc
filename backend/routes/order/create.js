@@ -21,7 +21,7 @@ module.exports = (app, endpoint) => {
           slug: products[i].slug
         })
 
-        console.log(product)
+        console.log(await product)
         const orderProduct = await new OrderProduct({
           slug: product.slug,
           name: product.name,
