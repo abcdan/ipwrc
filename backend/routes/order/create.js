@@ -1,5 +1,6 @@
 const Product = require('../../database/models/Product')
 const authentication = require('../../middleware/authentication')
+const OrderProduct = require('../../database/models/OrderProduct')
 
 module.exports = (app, endpoint) => {
   /**
@@ -16,7 +17,7 @@ module.exports = (app, endpoint) => {
           slug: products[i].slug
         })
         console.log(product)
-        const orderProduct = await new global.models('orderproduct')({
+        const orderProduct = await new OrderProduct({
           slug: product.slug,
           name: product.name,
           price: product.price,
