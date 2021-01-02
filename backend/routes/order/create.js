@@ -10,6 +10,11 @@ module.exports = (app, endpoint) => {
     if(products.length === 0) return res.status(400).json({ success: false, message: 'your forgot to give an array of products with id/amount' })
     if (!products || !products.length === 0) { return res.status(400).json({ success: false, message: 'your forgot to give an array of products with id/amount' }) }
     try {
+      console.log(products)
+      console.log(products)
+      console.log(products)
+      console.log(products)
+      console.log(products)
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
         const product = await global.models('Order').findOne({
