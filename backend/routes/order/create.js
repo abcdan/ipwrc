@@ -15,7 +15,7 @@ module.exports = (app, endpoint) => {
         const product = await global.models('Order').findOne({
           slug: products[i].slug
         })
-        const orderProduct = new OrderProduct({
+        const orderProduct = await new OrderProduct({
           slug: product.slug,
           name: product.name,
           price: product.price,
@@ -23,7 +23,7 @@ module.exports = (app, endpoint) => {
           image: product.image,
           amount: products[i].amount
         })
-        productDocuments.push(orderProduct)
+        productDocuments.push(await orderProduct)
       }
       const order = await new global.models('Order')({
         products: productDocuments,
