@@ -7,6 +7,7 @@ import { AdminGuard } from '../guards/admin.guard';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './new-product/new-product.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   {
     path: 'new-product', component: NewProductComponent, canActivate: [AdminGuard],
   },
+  {
+    path: '', component: DashboardComponent, canActivate: [AdminGuard],
+  },
 ]
 
 @NgModule({
@@ -29,6 +33,7 @@ const routes: Routes = [
     ProductsComponent,
     EditProductComponent,
     NewProductComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
