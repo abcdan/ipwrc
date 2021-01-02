@@ -14,7 +14,7 @@ var corsOptions = {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors()) // TODO: FIX CORS
+app.use(cors(corsOptions))
 app.use('/uploads', express.static('uploads'))
 require('./database/init')()
 
