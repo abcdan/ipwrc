@@ -6,7 +6,7 @@ module.exports = (app, endpoint) => {
   */
   app.get(endpoint + '/:orderId', authentication, async (req, res) => {
     try {
-      const order = await global.models('order').findById(req.params.orderId)
+      const order = await global.models('Order').findById(req.params.orderId)
       if(req.user.id !== await order.userId || !req.user.admin) return res.status(401).json({success: false, message: 'thats not your order'})
 
       res.json(await order)
