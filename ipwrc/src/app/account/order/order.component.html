@@ -3,8 +3,11 @@
 <div *ngIf="error" class="alert alert-danger" role="alert">
     {{error}}
 </div>
-
 <div *ngIf="order">
+<div *ngIf="!order.paid && !admin" class="alert alert-primary" role="alert">
+    You haven't paid yet! Please make a SEPA transaction to <b>NL69FAKE1337133769</b>. A website administrator will put your order on paid whenever they've received the money
+</div>
+
 <div *ngIf="admin" class="card">
     <div class="card-body">
         <h5 class="card-title">Admin Panel</h5>
@@ -15,7 +18,6 @@
     </div>
 </div>
 <br>
-
 
 <div class="extra">
     <div *ngIf="order.paid">

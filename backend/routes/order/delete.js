@@ -7,10 +7,9 @@ module.exports = (app, endpoint) => {
   app.delete(endpoint + '/:orderId', authentication, async (req, res) => {
     try {
       if(!req.user.admin) { return res.status(401).json({ success: false, message: 'you are not an admin. what are you trying to do?'})}
-      const product = await global.models('order').findById(req.params.orderId)
-      product.deleteOne()
-      product.save()
-      res.json(await product)
+      const order = await global.models('order').findById(req.params.orderId)
+      order.deleteOne()
+      res.json(await order)
     } catch (e) {
       res.send({ success: false, message: 'couldnt fetch order' })
     }

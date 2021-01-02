@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { cartItem } from 'src/app/models/cartItem';
 import { CartService } from '../cart.service';
 
@@ -11,7 +12,8 @@ export class SummaryComponent implements OnInit {
   @Input() items: cartItem[] | undefined
   @Input() clearCart: Function | any;
 
-  constructor(private cart: CartService) { }
+  constructor(private cart: CartService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -43,6 +45,11 @@ export class SummaryComponent implements OnInit {
 
   emptyCart() {
     this.clearCart()
+  }
+
+  makeOrder() {
+    this.router.navigate(['/account/make-order'])
+
   }
 
 }
