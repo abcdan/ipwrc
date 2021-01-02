@@ -1,6 +1,5 @@
 const Product = require('../../database/models/Product')
 const authentication = require('../../middleware/authentication')
-const OrderProduct = require('../../database/models/OrderProduct')
 
 module.exports = (app, endpoint) => {
   /**
