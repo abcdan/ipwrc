@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const OrderProductSchema = require('../schemas/OrderProduct')
+const OrderProductSchema = global.models('OrderProduct')
 
 const OrderSchema = mongoose.Schema({
   products: {
