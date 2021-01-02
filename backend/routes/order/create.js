@@ -1,4 +1,3 @@
-const Product = require('../../database/models/Product')
 const authentication = require('../../middleware/authentication')
 // const OrderProduct = require('../../database/models/OrderProduct')
 
@@ -13,7 +12,7 @@ module.exports = (app, endpoint) => {
     try {
       const productDocuments = []
       for (let i = 0; i < products.length; i++) {
-        const product = await Product.findOne({
+        const product = await global.models('order').findOne({
           slug: products[i].slug
         })
         const orderProduct = await new global.models('OrderProduct')({
