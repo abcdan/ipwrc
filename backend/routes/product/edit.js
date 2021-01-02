@@ -11,7 +11,7 @@ module.exports = (app, endpoint) => {
     if (!slug || !name || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, name, description, price, image' }) }
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
     try {
-      const product = global.models('product').update({
+      const product = global.models('Product').update({
         slug: req.params.slug
       })
 
