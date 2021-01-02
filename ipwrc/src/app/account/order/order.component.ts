@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/authentication/authservice.service';
+import { user } from 'src/app/authentication/user';
 import { order } from 'src/app/models/order';
 import { OrderserviceService } from '../orderservice.service';
 
@@ -12,6 +13,7 @@ import { OrderserviceService } from '../orderservice.service';
 export class OrderComponent implements OnInit {
 
   order: order | undefined
+  user: user | undefined
   error: string = ''
   admin: boolean = false
   constructor(private orderService: OrderserviceService,
@@ -23,7 +25,8 @@ export class OrderComponent implements OnInit {
     this.getAdmin()
     this.route.params.subscribe((params: any) => {
       this.orderService.fetchOrder(params['orderId']).subscribe((res: any) => {
-        this.order = res as order
+        this.order = res['order'] as order
+        this.user = res['user'] as user
         console.log(this.order)
       }, err => {
         this.error = 'Couldn\'t find an order with that id'
