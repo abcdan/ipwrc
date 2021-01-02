@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const OrderProductSchema = mongoose.Schema({
   slug: {
     type: String,
-    unique: true,
+    unique: false,
     required: false
   },
   name: {

@@ -1,4 +1,4 @@
 const mongoose = require('mongoose')
-const OrderProductSchema = require('../schemas/OrderProductClone')
+const OrderProductSchema = require('../schemas/OrderProduct')
 
 module.exports = mongoose.model('orderproduct', OrderProductSchema)
