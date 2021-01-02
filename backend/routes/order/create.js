@@ -26,7 +26,7 @@ module.exports = (app, endpoint) => {
         })
         productDocuments.push(await orderProduct)
       }
-      const order = new global.models('Order')({
+      const order = await new global.models('Order')({
         products: productDocuments,
         userId: req.user.id
       })
