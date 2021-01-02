@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - .env
+    # ports:
+    #   - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    # ports:
+    #   - 8081:8081
+    env_file:
+      - .env
+  
+  api: 
+    container_name: latte
+    restart: always
+    build: ./src
+    env_file:
+      - .env
+    networks:
+      - base
+    ports:
+      - "3000:3000"
