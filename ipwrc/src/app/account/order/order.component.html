@@ -14,9 +14,9 @@
         <div class="card-body">
             <h5 class="card-title">User Information</h5>
             <p class="card-text">Some info about who made the order</p>
-    <b>{{user.firstName}} {{user.lastName}}</b>
-        {{user.street}} {{user.streetNumber}}, {{user.postalCode}}, {{user.city}}, {{user.country}}
-        {{user.email}}
+    <b><i class="fas fa-user-shield"></i>{{user.firstName}} {{user.lastName}}</b><br>
+       <i class="fas fa-thumbtack"></i>{{user.street}} {{user.streetNumber}}, {{user.postalCode}}, {{user.city}}, {{user.country}}<br>
+       <i class="fas fa-envelope-square"></i><a href="mailto:{{user.email}}">{{user.email}}</a>
         </div>
         </div>
     </div>
