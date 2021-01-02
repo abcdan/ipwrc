@@ -32,6 +32,11 @@ export class AuthserviceService {
     return this.httpClient.get('user/check')
   }
 
+  me() {
+    return this.httpClient.get('user/me')
+  }
+
+
   upgradeToAdmin(key: string) {
     return this.httpClient.post('user/upgrade-to-admin', { key })
   }
