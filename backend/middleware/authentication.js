@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
     req.user.id = decoded.user.id
     next()
   } catch (e) {
-    console.error(e)
+    // console.error(e)
     res.status(500).send({ message: 'Invalid Token' })
   }
 }
