@@ -18,3 +18,7 @@
 .bg-indigo {
     background-color: #0D3B66 !important;
 }
+
+* {
+  font-family: 'Inter', sans-serif;
+}
