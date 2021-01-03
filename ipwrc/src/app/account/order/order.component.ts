@@ -57,8 +57,7 @@ export class OrderComponent implements OnInit {
   deleteOrder() {
     if(this.order) { 
       this.orderService.deleteOrder(this.order._id).subscribe((res: any) => {
-        // console.log(res)
-        window.location.reload()
+        this.order = undefined
       }, (err: any) => {
         console.log(err)
       })
