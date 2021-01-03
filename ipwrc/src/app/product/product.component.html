@@ -1,13 +1,17 @@
 <div *ngIf="product" class="container">
     <div class="row">
-      <div class="col">
-          <img class="product-image" src="{{product.image}}">
+      <div class="col-md-12 col-lg-6 details">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">&euro; {{product.price}}</h6>
+            <p class="card-text">{{product.description}}</p>
+            <button type="button" class="btn btn-primary bg-indigo card-link" (click)="addToCart()">Add to cart!</button>
+          </div>
+        </div>
       </div>
-      <div class="col details">
-          <h1>{{product.name}}</h1>
-          <span class="pricing bg-sandy">&euro; {{product.price}}</span>
-          <p>{{product.description}}</p>
-          <button type="button" class="btn btn-primary bg-indigo" (click)="addToCart()">Add to cart!</button>
+      <div class="col-md-12 col-lg-6">
+          <img class="product-image" src="{{product.image}}">
       </div>
     </div>
   </div>
