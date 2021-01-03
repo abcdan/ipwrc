@@ -40,6 +40,6 @@ export class ProductsComponent implements OnInit {
 
   // Credits https://stackoverflow.com/questions/1199352/smart-way-to-truncate-long-strings
   truncate(str: string, n: number){
-    return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+    return (str.length > n) ? str.substr(0, n-1) + '...' : str;
   };
 }
