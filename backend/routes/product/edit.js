@@ -14,7 +14,7 @@ module.exports = (app, endpoint) => {
     if(!productRegex.test(slug)) return res.status(400).json({ success: false, message: 'slug can only be letters/numbers/underscores'})
     const slugLowerCase = slug.toLowerCase()
     try {
-      const product = global.models('Product').update({
+      const product = global.models('Product').findOne({
         slug: slugLowerCase
       })
 
