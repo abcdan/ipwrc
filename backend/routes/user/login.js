@@ -31,7 +31,7 @@ module.exports = (app, endpoint) => {
         }
       }
 
-      jwt.sign(payload, process.env.JWT, { expiresIn: 3600 }, (err, token) => {
+      jwt.sign(payload, process.env.JWT, { expiresIn: 21600 }, (err, token) => {
         if (err) throw err
         res.status(200).json({
           token
