@@ -68,8 +68,8 @@ export class OrderComponent implements OnInit {
   togglePaid() {
     if(this.order) { 
       this.orderService.togglePaid(this.order._id).subscribe((res: any) => {
-        // console.log(res)
-        window.location.reload()
+        if(this.order) 
+          this.order.paid = !this.order.paid
       }, (err: any) => {
         console.log(err)
       })
@@ -79,8 +79,8 @@ export class OrderComponent implements OnInit {
   toggleDelivered() {
     if(this.order) {
       this.orderService.toggleDelivered(this.order._id).subscribe((res: any) => {
-        // console.log(res)
-        window.location.reload()
+        if(this.order) 
+          this.order.delivered = !this.order.delivered
       }, (err: any) => {
         console.log(err)
       })
