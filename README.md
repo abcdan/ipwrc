@@ -1,4 +1,5 @@
 # ~~ipwrc~~ IPRWC
+_It's stripe through because I made a typo in the name of the course... We're just gonna act like that never happened._
 A webshop made for a school project in Angular (with a Node.js backend + MongoDB as database).
 
 ## Notice!
