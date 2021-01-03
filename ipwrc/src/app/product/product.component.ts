@@ -20,6 +20,8 @@ export class ProductComponent implements OnInit {
 
   product: any
 
+  error: string = ''
+
   ngOnInit(): void {
     this.route.params.subscribe(r => {
       this.productsService.getProduct(r.slug).subscribe(response => {
@@ -28,6 +30,8 @@ export class ProductComponent implements OnInit {
         }
         this.product = response as Product
         return
+      }, err => {
+        this.error = 'Couldn\'t find or load the product.'
       })
     })
   }

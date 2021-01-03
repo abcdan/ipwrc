@@ -1,6 +1,10 @@
 <h2>Product Info</h2>
 <p>Get to know the product you want to order.</p>
 
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{error}}
+</div>
+
 <div *ngIf="product">
     <div class="row">
       <div class="col-md-12 col-lg-6">
