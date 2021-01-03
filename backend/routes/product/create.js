@@ -15,10 +15,11 @@ module.exports = (app, endpoint) => {
 
     const productRegex = /^\w+$/;
     if(!productRegex.test(slug)) return res.status(400).json({ success: false, message: 'slug can only be letters/numbers/underscores'})
+    const slugLowerCase = slug.toLowerCase()
 
     try {
       const findProduct = await Product.find({
-        slug
+        slug: slugLowerCase
       })
 
       if(findProduct.length > 0) {
@@ -27,7 +28,7 @@ module.exports = (app, endpoint) => {
 
       console.log(await findProduct)
       const product = new Product({
-        slug,
+        slug: slugLowerCase,
         name,
         description,
         price,

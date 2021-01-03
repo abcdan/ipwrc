@@ -12,13 +12,14 @@ module.exports = (app, endpoint) => {
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
     const productRegex = /^\w+$/;
     if(!productRegex.test(slug)) return res.status(400).json({ success: false, message: 'slug can only be letters/numbers/underscores'})
+    const slugLowerCase = slug.toLowerCase()
     try {
       const product = global.models('Product').update({
-        slug: req.params.slug
+        slug: slugLowerCase
       })
 
       await product.updateOne({
-        slug, name, description, price, image
+        slug: slugLowerCase, name, description, price, image
       })
 
       res.json({ success: true, message: 'updated'})
