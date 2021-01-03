@@ -29,7 +29,8 @@ module.exports = (app, endpoint) => {
 
       const order = await new global.models('Order')({
         products: productDocuments,
-        userId: req.user.id
+        userId: req.user.id,
+        createdAt: Date.now()
       })
 
       await order.save().catch(e =>{

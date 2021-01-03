@@ -6,7 +6,7 @@ module.exports = (app, endpoint) => {
     try {
       const orders = await global.models('Order').find({
         userId: req.user.id
-      })
+      }).sort([['createdAt', -1]])
       const user = await User.findById(req.user.id)
       res.json({
         success: true,

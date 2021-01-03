@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { order } from 'src/app/models/order';
 
 @Component({
@@ -12,6 +13,13 @@ export class OrderListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toDisplayabledate(): string {
+    if(this.order) {
+      return moment(this.order.createdAt).fromNow()
+    }
+    return ''
   }
 
 }

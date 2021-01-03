@@ -5,7 +5,7 @@
         
     </div>
     <div class="col-4">
-        {{order.createdAt}}
+        <i class="fas fa-clock"></i> {{toDisplayabledate()}}
     </div>
     <div class="col-4">
         <div *ngIf="order.paid; else unpaid">
