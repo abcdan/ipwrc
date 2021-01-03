@@ -26,6 +26,7 @@
     <label for="image" class="form-label">Image</label>
     <input type="link" class="form-control" name="image" ngModel required link [(ngModel)]="productToEdit.image">
   </div>
+  <p><i>You can upload the file directly to <a href="https://file.coffee" target="_blank">file.coffee</a> and enter the link above</i></p>
   <span class="help-block" *ngIf="!productForm.valid && productForm.touched">
     Make sure all the values are correct. Then you can press this button
   </span>

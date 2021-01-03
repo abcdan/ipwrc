@@ -17,7 +17,7 @@ export class LoggedInGuard implements CanActivate {
           return res.success
         }).catch(e => {
           this.authService.signOut()
-          if(route.url[0].path === 'make-order') {
+          if(route.url.length > 0 && route.url[0].path === 'make-order') {
             this.router.navigate(['/auth/choose'], {
               queryParams: {
                 ref: 'cart'
