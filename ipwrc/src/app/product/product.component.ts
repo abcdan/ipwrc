@@ -24,12 +24,14 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(r => {
-      this.productsService.getProduct(r.slug).subscribe(response => {
-        if(response.toString().length === 0 ) {
-          return this.router.navigate(['/products'])
+      this.productsService.getProduct(r.slug).subscribe((response: any) => {
+        console.log(response)
+        if(!response) {
+         this.error = 'Couldn\'t find or load the product.'
+        } else {
+          this.product = response as Product
+
         }
-        this.product = response as Product
-        return
       }, err => {
         this.error = 'Couldn\'t find or load the product.'
       })
