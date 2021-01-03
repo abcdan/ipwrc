@@ -23,7 +23,11 @@ export class ChooseComponent implements OnInit {
 
   toLogin() {
     if(this.ref) {
-      this.router.navigate(['/auth/login?ref=' + this.ref])
+      this.router.navigate(['/auth/login'], {
+        queryParams: {
+          ref: this.ref
+        }
+      })
     } else {
       this.router.navigate(['/auth/login'])
     }
@@ -31,7 +35,11 @@ export class ChooseComponent implements OnInit {
 
   toSignup() {
     if(this.ref) {
-      this.router.navigate(['/auth/signup?ref=' + this.ref])
+      this.router.navigate(['/auth/signup'], {
+        queryParams: {
+          ref: this.ref
+        }
+      })
     } else {
       this.router.navigate(['/auth/signup'])
     }
