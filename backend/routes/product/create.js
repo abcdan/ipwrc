@@ -13,8 +13,10 @@ module.exports = (app, endpoint) => {
     if (!slug || !name || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, name, description, price, image' }) }
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
 
-    try {
+    const productRegex = /^\w+$/;
+    if(!productRegex.test(slug)) return res.status(400).json({ success: false, message: 'slug can only be letters/numbers/underscores'})
 
+    try {
       const findProduct = await Product.find({
         slug
       })

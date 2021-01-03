@@ -10,6 +10,8 @@ module.exports = (app, endpoint) => {
     const { slug, name, description, price, image } = req.body
     if (!slug || !name || !description || !price || !image) { return res.status(400).json({ success: false, message: 'you forgot one of the following slug, name, description, price, image' }) }
     if(slug === 'new') return res.status(400).json({success: false, message: 'slug cannot be called new'})
+    const productRegex = /^\w+$/;
+    if(!productRegex.test(slug)) return res.status(400).json({ success: false, message: 'slug can only be letters/numbers/underscores'})
     try {
       const product = global.models('Product').update({
         slug: req.params.slug
