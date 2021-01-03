@@ -20,16 +20,16 @@ export class SummaryComponent implements OnInit {
 
   
 
-  getTotalPrice(): number {
+  getTotalPrice(): string {
     if(this.items) {
       let price = 0
       this.items.forEach(item => {
         let _item: any = item
         price += _item.product.price * _item.amount
       })
-      return price
+      return price.toFixed(2)
     }
-    return 0
+    return '0'
   }
 
   countProducts(): number {

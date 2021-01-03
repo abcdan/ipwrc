@@ -10,7 +10,7 @@
         <a href="/product/{{item.product.slug}}">{{item.product.name}}</a>
     </div>
     <div class="col-3">
-        &euro; {{item.product.price * item.amount}}
+        &euro; {{(item.product.price * item.amount).toFixed(2)}}
     </div>
 </div>
 <hr>
