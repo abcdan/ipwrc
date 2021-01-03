@@ -1,5 +1,8 @@
-# ipwrc
-ziek mooie website kom vechten dan, niet te hacken
+# ~~ipwrc~~ IPRWC
+A webshop made for a school project in Angular (with a Node.js backend + MongoDB as database).
 
-# copyright
-ik ben de eigenaar neef. afblijve
+## Notice!
+I'm not proud of this codebase but it's functional so I decided to make the repo public :)
+
+# Copyright
+I'm the owner of this codebase, you cannot copy/use/edit it.
