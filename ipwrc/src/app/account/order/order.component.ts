@@ -62,7 +62,6 @@ export class OrderComponent implements OnInit {
       }, (err: any) => {
         console.log(err)
       })
-      window.location.reload()
     }
   }
 
@@ -85,7 +84,6 @@ export class OrderComponent implements OnInit {
       }, (err: any) => {
         console.log(err)
       })
-      window.location.reload()
     }
   }
 }
