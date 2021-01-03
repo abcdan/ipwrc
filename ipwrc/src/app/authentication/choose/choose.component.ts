@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-choose',
@@ -8,16 +8,32 @@ import { Router } from '@angular/router';
 })
 export class ChooseComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  ref: string = ''
+
+  constructor(private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if(params.ref === 'cart') {
+        this.ref = 'cart'
+      }
+    });
   }
 
   toLogin() {
-    this.router.navigate(['/auth/login'])
+    if(this.ref) {
+      this.router.navigate(['/auth/login?ref=' + this.ref])
+    } else {
+      this.router.navigate(['/auth/login'])
+    }
   }
 
   toSignup() {
-    this.router.navigate(['/auth/signup'])
+    if(this.ref) {
+      this.router.navigate(['/auth/signup?ref=' + this.ref])
+    } else {
+      this.router.navigate(['/auth/signup'])
+    }
   }
 }
