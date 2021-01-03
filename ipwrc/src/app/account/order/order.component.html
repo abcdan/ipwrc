@@ -71,7 +71,7 @@
 [item]="item">
 </app-order-detail-item>
 
-<p>The total price of this order is <b>&euro;{{getTotalPrice()}}</b>.</p>
+<p>The total price of this order is <b>&euro;{{getTotalPrice().toFixed(2)}}</b>.</p>
 <p>
     <i>If you clicked a product and it doesn't show an item, that might be cause the item got removed from the shop or got edited.</i>
 </p>
