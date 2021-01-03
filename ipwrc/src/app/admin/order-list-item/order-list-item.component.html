@@ -1,13 +1,13 @@
 
 <div class="row" *ngIf="order">
-    <div class="col-4">
+    <div class="col-md-12 col-lg-4">
         <a href="/account/order/{{order._id}}">{{order._id}}</a>
         
     </div>
-    <div class="col-4">
+    <div class="col-md-12 col-lg-4">
         <i class="fas fa-clock"></i> {{toDisplayabledate()}}
     </div>
-    <div class="col-4">
+    <div class="col-md-12 col-lg-4">
         <div *ngIf="order.paid; else unpaid">
             <span class="badge badge-success">PAID</span>
 
