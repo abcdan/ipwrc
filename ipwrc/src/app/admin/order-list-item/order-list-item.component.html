@@ -8,22 +8,18 @@
         <i class="fas fa-clock"></i> {{toDisplayabledate()}}
     </div>
     <div class="col-md-12 col-lg-4">
-        <div *ngIf="order.paid; else unpaid">
-            <span class="badge badge-success">PAID</span>
-
-        </div>
-        <ng-template #unpaid>
-            <span class="badge badge-danger">UNPAID</span>
-        </ng-template>
-        &nbsp;
-        <div *ngIf="order.delivered; else notDelivered">
-            <span class="badge badge-success">DELIVERED</span>
-
-        </div>
-        
-        <ng-template #notDelivered>
-            <span class="badge badge-danger">NOT DELIVERED</span>
-        </ng-template>
+    <div *ngIf="order.paid">
+        <span class="badge badge-success">PAID</span>
+    </div>
+    <div *ngIf="!order.paid">
+        <span class="badge badge-danger">UNPAID</span>
+    </div>
+    <div *ngIf="order.delivered">
+        <span class="badge badge-success">DELIVERED</span>
+    </div>
+    <div *ngIf="!order.delivered">
+        <span class="badge badge-danger">NOT DELIVERED</span>
+    </div>
     </div>
 </div>
 <hr>
