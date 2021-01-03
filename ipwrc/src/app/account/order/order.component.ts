@@ -57,7 +57,8 @@ export class OrderComponent implements OnInit {
   deleteOrder() {
     if(this.order) { 
       this.orderService.deleteOrder(this.order._id).subscribe((res: any) => {
-        console.log(res)
+        // console.log(res)
+        window.location.reload()
       }, (err: any) => {
         console.log(err)
       })
@@ -68,18 +69,19 @@ export class OrderComponent implements OnInit {
   togglePaid() {
     if(this.order) { 
       this.orderService.togglePaid(this.order._id).subscribe((res: any) => {
-        console.log(res)
+        // console.log(res)
+        window.location.reload()
       }, (err: any) => {
         console.log(err)
       })
-      window.location.reload()
     }
   }
 
   toggleDelivered() {
     if(this.order) {
       this.orderService.toggleDelivered(this.order._id).subscribe((res: any) => {
-        console.log(res)
+        // console.log(res)
+        window.location.reload()
       }, (err: any) => {
         console.log(err)
       })
