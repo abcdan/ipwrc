@@ -18,7 +18,7 @@ export class ChooseComponent implements OnInit {
       if(params.ref === 'cart') {
         this.ref = 'cart'
       }
-    });
+    })
   }
 
   toLogin() {

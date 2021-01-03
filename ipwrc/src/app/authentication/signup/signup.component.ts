@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthserviceService } from '../authservice.service';
 import { user } from '../user';
 
@@ -10,11 +10,18 @@ import { user } from '../user';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  ref: string = ''
   registerForm: FormGroup | any
   error: string = ''
 
   constructor(private authService: AuthserviceService,
-    private router: Router) { 
+    private router: Router,
+    private route: ActivatedRoute) { 
+      this.route.queryParams.subscribe(params => {
+        if(params.ref === 'cart') {
+          this.ref = 'cart'
+        }
+      })
     this.registerForm = new FormGroup({
       data: new FormGroup({
         username: new FormControl(null, [Validators.required]),
@@ -43,7 +50,11 @@ export class SignupComponent implements OnInit {
     console.log(this.registerForm.value['data'] as user)
     this.authService.signup(this.registerForm.value['data'] as user).subscribe(res => {
       this.error = ''
-      this.router.navigate(['/account'])
+      if(this.ref === 'cart') {
+        this.router.navigate(['/cart'])
+      } else {
+        this.router.navigate(['/account'])
+      }
       
     }, err => {
       this.error = 'Whoops! It looks like I couldn\'t create that account.'
